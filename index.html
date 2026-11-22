@@ -1,0 +1,3911 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Freshrances — Sweet Morning Petals</title>
+    <meta
+      name="description"
+      content="Sweet floral, calm, and refreshing fragrances — perfumes, mists, splash, deodorants, roll-ons, and body sprays."
+    />
+    <meta property="og:title" content="Freshrances — Sweet Morning Petals" />
+    <meta
+      property="og:description"
+      content="Sweet floral, calm, and refreshing fragrances — perfumes, mists, splash, deodorants, roll-ons, and body sprays."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'morning-cloud': '#FCFDFF',
+              'blush-mist': '#FBEFF4',
+              'ice-blue': '#EEF5FB',
+              'periwinkle-dew': '#EBF0FA',
+              'powder-rose': '#E49AB0',
+              'rose-deep': '#C87A93',
+              'serene-blue': '#7EA8C9',
+              'bluebell-accent': '#7C96C8',
+              'slate-plum': '#2B2D3D',
+              'soft-slate': '#5D6178',
+            },
+            fontFamily: {
+              display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+              sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+            },
+          },
+        },
+      };
+    </script>
+    <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+
+    <style>
+      :root {
+        --bg-cloud: #FCFDFF;
+        --surface-blush: #FBEFF4;
+        --surface-ice: #EEF5FB;
+        --surface-periwinkle: #EBF0FA;
+        --accent-rose: #E49AB0;
+        --accent-rose-deep: #C87A93;
+        --accent-blue: #7EA8C9;
+        --accent-bluebell: #7C96C8;
+        --ink-primary: #2B2D3D;
+        --ink-secondary: #5D6178;
+      }
+
+      body {
+        background-color: var(--bg-cloud);
+        color: var(--ink-primary);
+        font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .font-display {
+        font-family: 'Cormorant Garamond', Georgia, serif;
+      }
+
+      .tabular-nums {
+        font-variant-numeric: tabular-nums;
+      }
+
+      .text-balance {
+        text-wrap: balance;
+      }
+
+      /* Visible accessible focus rings */
+      :focus-visible {
+        outline: 2px solid #C87A93;
+        outline-offset: 2px;
+      }
+
+      /* Scroll progress ribbon on sticky header */
+      #scroll-progress-ribbon {
+        transform-origin: left center;
+        transform: scaleX(0);
+        will-change: transform;
+      }
+
+      /* Hero & studio gentle floating animations */
+      @keyframes petalFloat {
+        0%, 100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-9px) rotate(1.2deg);
+        }
+      }
+
+      @keyframes petalFloatSlow {
+        0%, 100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-6px);
+        }
+      }
+
+      @keyframes softShimmerGlow {
+        0%, 100% {
+          opacity: 0.55;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 0.9;
+          transform: scale(1.04);
+        }
+      }
+
+      @keyframes silkSweep {
+        0% {
+          transform: translateX(-140%) skewX(-20deg);
+        }
+        100% {
+          transform: translateX(240%) skewX(-20deg);
+        }
+      }
+
+      @keyframes productCardEnter {
+        from {
+          opacity: 0;
+          transform: translateY(14px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes bloomScroll {
+        0% {
+          transform: translateX(0%);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+
+      @keyframes typingBounce {
+        0%, 80%, 100% {
+          transform: translateY(0);
+          opacity: 0.45;
+        }
+        40% {
+          transform: translateY(-4px);
+          opacity: 1;
+        }
+      }
+
+      .animate-petal-float {
+        animation: petalFloat 6.5s ease-in-out infinite;
+      }
+
+      .animate-petal-float-slow {
+        animation: petalFloatSlow 5.2s ease-in-out infinite;
+      }
+
+      .animate-soft-glow {
+        animation: softShimmerGlow 5.5s ease-in-out infinite;
+      }
+
+      .product-card-enter {
+        animation: productCardEnter 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+      }
+
+      .bloom-marquee-track {
+        display: flex;
+        width: max-content;
+        animation: bloomScroll 38s linear infinite;
+      }
+
+      .bloom-marquee-wrapper:hover .bloom-marquee-track {
+        animation-play-state: paused;
+      }
+
+      /* Silk shimmer sweep on primary CTA buttons */
+      .btn-silk {
+        position: relative;
+        overflow: hidden;
+        transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease, background-color 0.2s ease;
+      }
+
+      .btn-silk::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 45%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.38), transparent);
+        transform: translateX(-140%) skewX(-20deg);
+        pointer-events: none;
+      }
+
+      .btn-silk:hover::after {
+        animation: silkSweep 0.85s ease forwards;
+      }
+
+      .btn-silk:active {
+        transform: scale(0.98);
+      }
+
+      .typing-dot {
+        animation: typingBounce 1.2s infinite ease-in-out;
+      }
+      .typing-dot:nth-child(2) {
+        animation-delay: 0.15s;
+      }
+      .typing-dot:nth-child(3) {
+        animation-delay: 0.3s;
+      }
+
+      /* Studio card hover transition */
+      .vessel-stage svg.vessel-art {
+        transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .product-card:hover .vessel-stage svg.vessel-art {
+        transform: translateY(-4px) scale(1.025);
+      }
+
+      /* Subtle custom scrollbar */
+      .calm-scroll::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+      }
+      .calm-scroll::-webkit-scrollbar-track {
+        background: #FBEFF4;
+      }
+      .calm-scroll::-webkit-scrollbar-thumb {
+        background: #D8B4C2;
+        border-radius: 9999px;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+          scroll-behavior: auto !important;
+        }
+        .bloom-marquee-track {
+          animation: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-morning-cloud text-slate-plum selection:bg-blush-mist selection:text-slate-plum">
+    <!-- Top Announcement Strip -->
+    <div
+      id="top-announcement-strip"
+      class="bg-gradient-to-r from-blush-mist via-periwinkle-dew to-ice-blue border-b border-[#E7DCE6] text-slate-plum text-xs"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-9 flex items-center justify-between gap-4">
+        <p class="truncate font-medium tracking-tight">
+          Complimentary shipping &amp; Sweet-Floral Discovery Trio on orders above <span class="tabular-nums font-semibold">$65</span>
+        </p>
+        <div class="hidden sm:flex items-center gap-4 shrink-0 text-soft-slate">
+          <a
+            href="mailto:concierge@freshrances.com"
+            class="hover:text-rose-deep transition-colors whitespace-nowrap"
+          >
+            concierge@freshrances.com
+          </a>
+          <button
+            type="button"
+            id="dismiss-top-strip"
+            aria-label="Dismiss announcement"
+            class="p-1 rounded hover:bg-white/60 text-soft-slate hover:text-slate-plum transition-colors"
+          >
+            <i class="ph ph-x text-xs" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sticky Glassmorphic Header -->
+    <header
+      id="site-header"
+      class="sticky top-0 z-40 bg-morning-cloud/85 backdrop-blur-md border-b border-[#EAE6EE] transition-shadow duration-200"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4 lg:gap-8">
+        <!-- Brand Lockup -->
+        <a
+          href="#top"
+          class="flex items-center gap-2.5 shrink-0 whitespace-nowrap group"
+          aria-label="Freshrances Home"
+        >
+          <span
+            class="w-9 h-9 rounded-full bg-gradient-to-br from-blush-mist to-ice-blue border border-[#E6DCE8] flex items-center justify-center shadow-xs group-hover:scale-105 transition-transform"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path
+                d="M12 3.5C13.7 6.3 15.2 8.2 12 11.4C8.8 8.2 10.3 6.3 12 3.5Z"
+                fill="#E49AB0"
+                fill-opacity="0.9"
+              />
+              <path
+                d="M20.5 12C17.7 13.7 15.8 15.2 12.6 12C15.8 8.8 17.7 10.3 20.5 12Z"
+                fill="#7EA8C9"
+                fill-opacity="0.85"
+              />
+              <path
+                d="M12 20.5C10.3 17.7 8.8 15.8 12 12.6C15.2 15.8 13.7 17.7 12 20.5Z"
+                fill="#C87A93"
+                fill-opacity="0.85"
+              />
+              <path
+                d="M3.5 12C6.3 10.3 8.2 8.8 11.4 12C8.2 15.2 6.3 13.7 3.5 12Z"
+                fill="#7C96C8"
+                fill-opacity="0.8"
+              />
+              <circle cx="12" cy="12" r="2" fill="#FCFDFF" stroke="#C87A93" stroke-width="1.2" />
+            </svg>
+          </span>
+          <span class="flex flex-col leading-none">
+            <span class="font-display text-2xl font-semibold tracking-tight text-slate-plum">Freshrances</span>
+            <span class="text-[10px] tracking-[0.16em] uppercase text-soft-slate font-medium hidden sm:block">
+              Sweet Morning Petals
+            </span>
+          </span>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden lg:flex items-center gap-6 text-sm font-medium text-soft-slate" aria-label="Main Navigation">
+          <a href="#collections" class="hover:text-rose-deep transition-colors whitespace-nowrap shrink-0 py-1">
+            Collections
+          </a>
+          <a href="#floral-moods" class="hover:text-rose-deep transition-colors whitespace-nowrap shrink-0 py-1">
+            Floral Moods
+          </a>
+          <a href="#fragrance-guide" class="hover:text-rose-deep transition-colors whitespace-nowrap shrink-0 py-1">
+            Fragrance Guide
+          </a>
+          <a href="#reviews" class="hover:text-rose-deep transition-colors whitespace-nowrap shrink-0 py-1">
+            Reviews
+          </a>
+          <a href="#contact" class="hover:text-rose-deep transition-colors whitespace-nowrap shrink-0 py-1">
+            Contact
+          </a>
+        </nav>
+
+        <!-- Actions: Expandable Search, Profile, Bag -->
+        <div class="flex items-center gap-2 sm:gap-2.5 shrink-0">
+          <!-- Expandable Search -->
+          <div class="relative flex items-center">
+            <div
+              id="header-search-wrap"
+              class="hidden items-center bg-white border border-[#E5DCE7] rounded-full pl-3 pr-2 py-1 mr-1 shadow-xs transition-all"
+            >
+              <input
+                type="search"
+                id="header-search-input"
+                placeholder="Search peony, pear, mist..."
+                aria-label="Search fragrances"
+                class="w-36 sm:w-48 text-xs bg-transparent text-slate-plum placeholder:text-soft-slate/70 focus:outline-none"
+              />
+              <button
+                type="button"
+                id="header-search-clear"
+                aria-label="Clear search"
+                class="hidden p-1 text-soft-slate hover:text-slate-plum"
+              >
+                <i class="ph ph-x text-xs" aria-hidden="true"></i>
+              </button>
+            </div>
+            <button
+              type="button"
+              id="header-search-toggle"
+              aria-label="Toggle fragrance search"
+              aria-expanded="false"
+              class="min-h-[40px] min-w-[40px] rounded-full border border-[#E6DCE8] bg-white/90 hover:bg-blush-mist/60 text-slate-plum flex items-center justify-center transition-colors"
+            >
+              <i class="ph ph-magnifying-glass text-base" aria-hidden="true"></i>
+            </button>
+          </div>
+
+          <!-- My Profile Button -->
+          <button
+            type="button"
+            id="open-profile-btn"
+            class="min-h-[40px] px-3 sm:px-3.5 rounded-full border border-[#E6DCE8] bg-white/90 hover:bg-ice-blue/70 text-slate-plum text-xs font-medium flex items-center gap-2 transition-colors whitespace-nowrap shrink-0"
+          >
+            <i class="ph ph-user text-base text-serene-blue" aria-hidden="true"></i>
+            <span id="profile-btn-label" class="hidden sm:inline">My Profile</span>
+            <span
+              id="profile-saved-dot"
+              class="hidden w-1.5 h-1.5 rounded-full bg-rose-deep"
+              title="Profile saved"
+            ></span>
+          </button>
+
+          <!-- Slide-Out Scent Bag Button -->
+          <button
+            type="button"
+            id="open-bag-btn"
+            class="btn-silk min-h-[40px] px-3.5 sm:px-4 rounded-full bg-rose-deep hover:bg-[#B86A84] text-white text-xs font-semibold flex items-center gap-2 shadow-sm whitespace-nowrap shrink-0"
+          >
+            <i class="ph ph-handbag text-base" aria-hidden="true"></i>
+            <span class="hidden sm:inline">Scent Bag</span>
+            <span
+              id="header-bag-count"
+              class="tabular-nums inline-flex items-center justify-center min-w-[20px] h-5 px-1.5 rounded-full bg-white/25 text-white text-[11px] font-semibold"
+            >
+              0
+            </span>
+          </button>
+
+          <!-- Mobile Menu Button -->
+          <button
+            type="button"
+            id="mobile-menu-toggle"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+            class="lg:hidden min-h-[40px] min-w-[40px] rounded-full border border-[#E6DCE8] bg-white/90 text-slate-plum flex items-center justify-center"
+          >
+            <i class="ph ph-list text-lg" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Navigation Drawer -->
+      <div
+        id="mobile-nav-panel"
+        class="hidden lg:hidden border-t border-[#EAE6EE] bg-morning-cloud/95 px-4 py-3"
+      >
+        <nav class="flex flex-wrap items-center justify-between gap-3 text-sm font-medium text-soft-slate" aria-label="Mobile Navigation">
+          <a href="#collections" class="mobile-nav-link py-1.5 px-2 hover:text-rose-deep">Collections</a>
+          <a href="#floral-moods" class="mobile-nav-link py-1.5 px-2 hover:text-rose-deep">Floral Moods</a>
+          <a href="#fragrance-guide" class="mobile-nav-link py-1.5 px-2 hover:text-rose-deep">Fragrance Guide</a>
+          <a href="#reviews" class="mobile-nav-link py-1.5 px-2 hover:text-rose-deep">Reviews</a>
+          <a href="#contact" class="mobile-nav-link py-1.5 px-2 hover:text-rose-deep">Contact</a>
+        </nav>
+      </div>
+
+      <!-- Scroll Progress Ribbon -->
+      <div class="w-full h-[2px] bg-transparent overflow-hidden">
+        <div
+          id="scroll-progress-ribbon"
+          class="h-full w-full bg-gradient-to-r from-powder-rose via-rose-deep to-serene-blue"
+        ></div>
+      </div>
+    </header>
+
+    <main id="top">
+      <!-- HERO SECTION -->
+      <section
+        class="relative overflow-hidden bg-gradient-to-br from-blush-mist/85 via-morning-cloud to-ice-blue/90 border-b border-[#EAE5EF]"
+      >
+        <!-- Soft Ambient Orbs -->
+        <div
+          aria-hidden="true"
+          class="pointer-events-none absolute -top-24 -left-20 w-80 h-80 rounded-full bg-powder-rose/20 blur-3xl animate-soft-glow"
+        ></div>
+        <div
+          aria-hidden="true"
+          class="pointer-events-none absolute -bottom-24 right-0 w-96 h-96 rounded-full bg-serene-blue/20 blur-3xl animate-soft-glow"
+        ></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 relative z-10">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+            <!-- Left Hero Copy -->
+            <div class="lg:col-span-7 space-y-6">
+              <p class="text-xs font-semibold uppercase tracking-[0.2em] text-rose-deep">
+                Sweet Morning Petals · Artisanal Botanical House
+              </p>
+
+              <h1 class="font-display text-4xl sm:text-5xl lg:text-[3.75rem] font-semibold leading-[1.08] tracking-tight text-slate-plum text-balance">
+                Sweet Floral Calm, <em class="italic font-normal text-rose-deep">Softly Refreshing.</em>
+              </h1>
+
+              <p class="text-base sm:text-lg text-soft-slate leading-relaxed max-w-2xl">
+                Crafted for serene mornings and effortless grace. Freshrances blends dewy white peony, candied pear, pink lychee, chilled rosewater, and morning bluebell into weightless, uplifting fragrances—never heavy or overpowering, always softly luminous on skin.
+              </p>
+
+              <!-- Primary CTAs -->
+              <div class="flex flex-wrap items-center gap-3.5 pt-1">
+                <a
+                  href="#collections"
+                  class="btn-silk min-h-[46px] px-7 py-3 rounded-full bg-rose-deep hover:bg-[#B86A84] text-white text-sm font-semibold inline-flex items-center gap-2 shadow-sm whitespace-nowrap"
+                >
+                  <span>Explore Sweet Florals</span>
+                  <i class="ph ph-arrow-down-right text-base" aria-hidden="true"></i>
+                </a>
+                <button
+                  type="button"
+                  id="hero-ask-guide-btn"
+                  class="min-h-[46px] px-6 py-3 rounded-full bg-white/90 hover:bg-ice-blue border border-[#D8E3EE] text-slate-plum text-sm font-semibold inline-flex items-center gap-2 transition-colors whitespace-nowrap"
+                >
+                  <i class="ph ph-chat-circle-dots text-base text-serene-blue" aria-hidden="true"></i>
+                  <span>Ask Scent Guide</span>
+                </button>
+              </div>
+
+              <!-- Three Clean Highlights -->
+              <div class="grid grid-cols-3 gap-4 sm:gap-6 pt-5 border-t border-[#E6DCE8]/80 max-w-xl">
+                <div>
+                  <p class="font-display text-xl sm:text-2xl font-semibold text-slate-plum">Soft &amp; Sweet</p>
+                  <p class="text-xs text-soft-slate mt-0.5">Dewy petals &amp; nectar accords</p>
+                </div>
+                <div>
+                  <p class="font-display text-xl sm:text-2xl font-semibold text-slate-plum">6 Rituals</p>
+                  <p class="text-xs text-soft-slate mt-0.5">Perfume to fine body mist</p>
+                </div>
+                <div>
+                  <p class="font-display text-xl sm:text-2xl font-semibold text-slate-plum">Calm Glow</p>
+                  <p class="text-xs text-soft-slate mt-0.5">Airy, skin-gentle trail</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Hero Flacon Artwork -->
+            <div class="lg:col-span-5 relative flex items-center justify-center">
+              <div
+                class="relative w-full max-w-[400px] aspect-square rounded-[2rem] bg-gradient-to-br from-white/90 via-blush-mist/60 to-periwinkle-dew/80 border border-white shadow-[0_24px_60px_-18px_rgba(124,150,200,0.28)] flex items-center justify-center p-6"
+              >
+                <!-- Floating Note Labels -->
+                <div
+                  class="animate-petal-float-slow absolute top-6 left-5 bg-white/92 backdrop-blur-sm border border-[#EADCE4] rounded-full px-3 py-1.5 text-[11px] font-medium text-slate-plum shadow-xs"
+                >
+                  White Peony
+                </div>
+                <div
+                  class="animate-petal-float-slow absolute top-14 right-4 bg-white/92 backdrop-blur-sm border border-[#DCE6F0] rounded-full px-3 py-1.5 text-[11px] font-medium text-slate-plum shadow-xs"
+                  style="animation-delay: 1.1s"
+                >
+                  Morning Bluebell
+                </div>
+                <div
+                  class="animate-petal-float-slow absolute bottom-12 left-4 bg-white/92 backdrop-blur-sm border border-[#EADCE4] rounded-full px-3 py-1.5 text-[11px] font-medium text-slate-plum shadow-xs"
+                  style="animation-delay: 2.1s"
+                >
+                  Candied Pear
+                </div>
+                <div
+                  class="animate-petal-float-slow absolute bottom-6 right-6 bg-white/92 backdrop-blur-sm border border-[#DCE6F0] rounded-full px-3 py-1.5 text-[11px] font-medium text-slate-plum shadow-xs"
+                  style="animation-delay: 0.7s"
+                >
+                  Vanilla Cloud
+                </div>
+
+                <!-- Hero Glass Perfume Flacon SVG -->
+                <svg
+                  viewBox="0 0 300 320"
+                  class="w-64 sm:w-72 h-auto animate-petal-float drop-shadow-[0_18px_28px_rgba(200,122,147,0.18)]"
+                  role="img"
+                  aria-label="Freshrances pink and blue glass perfume flacon surrounded by delicate petals"
+                >
+                  <defs>
+                    <linearGradient id="heroGlassGrad" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.92" />
+                      <stop offset="45%" stop-color="#FBEFF4" stop-opacity="0.72" />
+                      <stop offset="100%" stop-color="#EEF5FB" stop-opacity="0.88" />
+                    </linearGradient>
+                    <linearGradient id="heroLiquidGrad" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stop-color="#F2BDD0" stop-opacity="0.75" />
+                      <stop offset="55%" stop-color="#E49AB0" stop-opacity="0.58" />
+                      <stop offset="100%" stop-color="#A8C7E2" stop-opacity="0.68" />
+                    </linearGradient>
+                    <linearGradient id="heroCapGrad" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stop-color="#DDEAF6" />
+                      <stop offset="50%" stop-color="#FCFDFF" />
+                      <stop offset="100%" stop-color="#F4D3DF" />
+                    </linearGradient>
+                    <radialGradient id="heroShadowGrad" cx="50%" cy="50%" r="50%">
+                      <stop offset="0%" stop-color="#9A8DA6" stop-opacity="0.32" />
+                      <stop offset="100%" stop-color="#9A8DA6" stop-opacity="0" />
+                    </radialGradient>
+                  </defs>
+
+                  <!-- Pedestal Shadow -->
+                  <ellipse cx="150" cy="288" rx="84" ry="13" fill="url(#heroShadowGrad)" />
+
+                  <!-- Delicate Surrounding Blossoms -->
+                  <g opacity="0.88">
+                    <path d="M56 175 C42 165, 36 150, 50 144 C62 150, 62 164, 56 175Z" fill="#F2C8D7" />
+                    <path d="M56 175 C69 165, 76 152, 66 144 C56 150, 54 162, 56 175Z" fill="#E49AB0" />
+                    <circle cx="57" cy="166" r="3" fill="#FCFDFF" />
+
+                    <path d="M242 158 C254 146, 260 132, 246 126 C234 134, 236 148, 242 158Z" fill="#B9D2E8" />
+                    <path d="M242 158 C229 148, 224 135, 234 128 C243 135, 244 146, 242 158Z" fill="#7EA8C9" />
+                    <circle cx="241" cy="148" r="2.8" fill="#FCFDFF" />
+
+                    <ellipse cx="222" cy="245" rx="11" ry="6" transform="rotate(-24 222 245)" fill="#F3CBD8" />
+                    <ellipse cx="78" cy="238" rx="9" ry="5" transform="rotate(28 78 238)" fill="#C6DCF0" />
+                  </g>
+
+                  <!-- Crystal Stopper Cap -->
+                  <rect x="122" y="34" width="56" height="44" rx="12" fill="url(#heroCapGrad)" stroke="#C7D5E4" stroke-width="1.5" />
+                  <path d="M132 42 L138 42 L135 72 L130 72 Z" fill="#FFFFFF" opacity="0.7" />
+                  <!-- Collar & Silk Ribbon -->
+                  <rect x="129" y="78" width="42" height="14" rx="4" fill="#E6D9E2" stroke="#C87A93" stroke-width="1" />
+                  <path d="M129 85 Q106 88 100 100 Q114 96 129 89 Z" fill="#E49AB0" opacity="0.88" />
+                  <path d="M171 85 Q194 88 200 100 Q186 96 171 89 Z" fill="#7EA8C9" opacity="0.82" />
+
+                  <!-- Outer Glass Body -->
+                  <rect x="82" y="92" width="136" height="178" rx="28" fill="url(#heroGlassGrad)" stroke="#D4C7D6" stroke-width="1.8" />
+                  <!-- Inner Facet Border -->
+                  <rect x="92" y="102" width="116" height="158" rx="20" fill="none" stroke="#FFFFFF" stroke-opacity="0.85" stroke-width="1.5" />
+
+                  <!-- Tinted Perfume Liquid -->
+                  <path
+                    d="M96 144 Q124 137 150 143 Q176 149 204 143 L204 242 C204 251 196 257 187 257 L113 257 C104 257 96 251 96 242 Z"
+                    fill="url(#heroLiquidGrad)"
+                  />
+
+                  <!-- Specular Glass Highlights -->
+                  <path d="M104 114 L112 114 L112 245 L104 245 Z" fill="#FFFFFF" opacity="0.52" />
+                  <path d="M188 118 L193 118 L193 240 L188 240 Z" fill="#FFFFFF" opacity="0.32" />
+
+                  <!-- Minimal Editorial Label -->
+                  <rect x="108" y="148" width="84" height="72" rx="10" fill="#FCFDFF" fill-opacity="0.93" stroke="#E7DCE6" stroke-width="1.2" />
+                  <text
+                    x="150"
+                    y="175"
+                    text-anchor="middle"
+                    font-family="Cormorant Garamond, serif"
+                    font-size="14"
+                    font-weight="600"
+                    fill="#2B2D3D"
+                  >
+                    Freshrances
+                  </text>
+                  <line x1="126" y1="183" x2="174" y2="183" stroke="#E49AB0" stroke-width="1" />
+                  <text
+                    x="150"
+                    y="197"
+                    text-anchor="middle"
+                    font-family="Plus Jakarta Sans, sans-serif"
+                    font-size="7.5"
+                    letter-spacing="1.4"
+                    fill="#5D6178"
+                  >
+                    PEONY CLOUD
+                  </text>
+                  <text
+                    x="150"
+                    y="209"
+                    text-anchor="middle"
+                    font-family="Plus Jakarta Sans, sans-serif"
+                    font-size="6.5"
+                    fill="#7EA8C9"
+                  >
+                    EAU DE PARFUM
+                  </text>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- GENTLE HORIZONTAL SCENT MARQUEE -->
+      <div
+        class="bloom-marquee-wrapper bg-white border-b border-[#EAE5EF] py-3.5 overflow-hidden select-none"
+        aria-label="Signature sweet floral notes"
+      >
+        <div class="bloom-marquee-track text-xs sm:text-sm font-medium text-soft-slate tracking-wide">
+          <div class="flex items-center gap-8 pr-8 whitespace-nowrap">
+            <span>White Peony</span><span class="text-powder-rose">·</span>
+            <span>Candied Pear</span><span class="text-serene-blue">·</span>
+            <span>Pink Lychee</span><span class="text-powder-rose">·</span>
+            <span>Chilled Rosewater</span><span class="text-serene-blue">·</span>
+            <span>Morning Bluebell</span><span class="text-powder-rose">·</span>
+            <span>Soft Iris</span><span class="text-serene-blue">·</span>
+            <span>Sweet Neroli</span><span class="text-powder-rose">·</span>
+            <span>Dewy Jasmine</span><span class="text-serene-blue">·</span>
+            <span>Blossom Honey</span><span class="text-powder-rose">·</span>
+            <span>Soft Vanilla Cloud</span><span class="text-serene-blue">·</span>
+          </div>
+          <div class="flex items-center gap-8 pr-8 whitespace-nowrap" aria-hidden="true">
+            <span>White Peony</span><span class="text-powder-rose">·</span>
+            <span>Candied Pear</span><span class="text-serene-blue">·</span>
+            <span>Pink Lychee</span><span class="text-powder-rose">·</span>
+            <span>Chilled Rosewater</span><span class="text-serene-blue">·</span>
+            <span>Morning Bluebell</span><span class="text-powder-rose">·</span>
+            <span>Soft Iris</span><span class="text-serene-blue">·</span>
+            <span>Sweet Neroli</span><span class="text-powder-rose">·</span>
+            <span>Dewy Jasmine</span><span class="text-serene-blue">·</span>
+            <span>Blossom Honey</span><span class="text-powder-rose">·</span>
+            <span>Soft Vanilla Cloud</span><span class="text-serene-blue">·</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- FLORAL & SWEET MOOD SELECTOR -->
+      <section id="floral-moods" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-16">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-[0.18em] text-serene-blue">Curated Accord Moods</p>
+            <h2 class="font-display text-3xl sm:text-4xl font-semibold text-slate-plum mt-1">
+              Choose Your Morning Floral Mood
+            </h2>
+          </div>
+          <p class="text-sm text-soft-slate max-w-md">
+            Select a mood below to gently filter matching perfumes, mists, splashes, roll-ons, deodorants, and body sprays.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <!-- Mood 1: Sweet Blossom -->
+          <button
+            type="button"
+            data-mood="Sweet Blossom"
+            class="mood-card text-left p-6 rounded-2xl bg-gradient-to-br from-blush-mist to-white border border-[#EADAE3] hover:border-rose-deep hover:-translate-y-0.5 transition-all shadow-xs group"
+          >
+            <div class="flex items-center justify-between mb-4">
+              <span class="w-10 h-10 rounded-full bg-white border border-[#EEDCE4] flex items-center justify-center text-rose-deep">
+                <i class="ph ph-flower-lotus text-xl" aria-hidden="true"></i>
+              </span>
+              <span class="text-xs font-medium text-rose-deep group-hover:translate-x-0.5 transition-transform">
+                Filter Mood →
+              </span>
+            </div>
+            <h3 class="font-display text-2xl font-semibold text-slate-plum">Sweet Blossom</h3>
+            <p class="text-xs text-soft-slate mt-1.5 leading-relaxed">
+              Pink lychee, candied pear, sugar magnolia, and dewy white peony.
+            </p>
+          </button>
+
+          <!-- Mood 2: Calm Petal -->
+          <button
+            type="button"
+            data-mood="Calm Petal"
+            class="mood-card text-left p-6 rounded-2xl bg-gradient-to-br from-periwinkle-dew to-white border border-[#DCE3F2] hover:border-bluebell-accent hover:-translate-y-0.5 transition-all shadow-xs group"
+          >
+            <div class="flex items-center justify-between mb-4">
+              <span class="w-10 h-10 rounded-full bg-white border border-[#DCE3F2] flex items-center justify-center text-bluebell-accent">
+                <i class="ph ph-cloud text-xl" aria-hidden="true"></i>
+              </span>
+              <span class="text-xs font-medium text-bluebell-accent group-hover:translate-x-0.5 transition-transform">
+                Filter Mood →
+              </span>
+            </div>
+            <h3 class="font-display text-2xl font-semibold text-slate-plum">Calm Petal</h3>
+            <p class="text-xs text-soft-slate mt-1.5 leading-relaxed">
+              Soft iris, cotton flower, pink lotus, and airy bluebell veil.
+            </p>
+          </button>
+
+          <!-- Mood 3: Dewy Refresh -->
+          <button
+            type="button"
+            data-mood="Dewy Refresh"
+            class="mood-card text-left p-6 rounded-2xl bg-gradient-to-br from-ice-blue to-white border border-[#D8E5F2] hover:border-serene-blue hover:-translate-y-0.5 transition-all shadow-xs group"
+          >
+            <div class="flex items-center justify-between mb-4">
+              <span class="w-10 h-10 rounded-full bg-white border border-[#D8E5F2] flex items-center justify-center text-serene-blue">
+                <i class="ph ph-drop text-xl" aria-hidden="true"></i>
+              </span>
+              <span class="text-xs font-medium text-serene-blue group-hover:translate-x-0.5 transition-transform">
+                Filter Mood →
+              </span>
+            </div>
+            <h3 class="font-display text-2xl font-semibold text-slate-plum">Dewy Refresh</h3>
+            <p class="text-xs text-soft-slate mt-1.5 leading-relaxed">
+              Sweet neroli, rain-kissed jasmine, water lily, and sparkling mist.
+            </p>
+          </button>
+
+          <!-- Mood 4: Honeyed Bloom -->
+          <button
+            type="button"
+            data-mood="Honeyed Bloom"
+            class="mood-card text-left p-6 rounded-2xl bg-gradient-to-br from-[#FDF3F6] via-blush-mist/60 to-ice-blue/50 border border-[#EAE0E7] hover:border-rose-deep hover:-translate-y-0.5 transition-all shadow-xs group"
+          >
+            <div class="flex items-center justify-between mb-4">
+              <span class="w-10 h-10 rounded-full bg-white border border-[#EAE0E7] flex items-center justify-center text-rose-deep">
+                <i class="ph ph-sun-horizon text-xl" aria-hidden="true"></i>
+              </span>
+              <span class="text-xs font-medium text-rose-deep group-hover:translate-x-0.5 transition-transform">
+                Filter Mood →
+              </span>
+            </div>
+            <h3 class="font-display text-2xl font-semibold text-slate-plum">Honeyed Bloom</h3>
+            <p class="text-xs text-soft-slate mt-1.5 leading-relaxed">
+              Blossom honey, sweet freesia, apricot nectar, and soft vanilla cloud.
+            </p>
+          </button>
+        </div>
+      </section>
+
+      <!-- COLLECTIONS CATALOG (ALL 6 CATEGORIES, 18 PRODUCTS) -->
+      <section id="collections" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-8">
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-[0.18em] text-rose-deep">Complete Fragrance Atelier</p>
+            <h2 class="font-display text-3xl sm:text-4xl font-semibold text-slate-plum mt-1">
+              Six Refreshing Sweet-Floral Rituals
+            </h2>
+          </div>
+
+          <!-- Search + Sort Toolbar -->
+          <div class="flex flex-wrap items-center gap-3">
+            <div class="relative flex-1 sm:flex-initial">
+              <i class="ph ph-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-soft-slate text-sm" aria-hidden="true"></i>
+              <input
+                type="search"
+                id="catalog-search-input"
+                placeholder="Filter by note, name, or scent..."
+                aria-label="Filter catalog by note or name"
+                class="w-full sm:w-64 min-h-[42px] pl-9 pr-4 rounded-full bg-white border border-[#E4DCE6] text-xs sm:text-sm text-slate-plum placeholder:text-soft-slate/70 focus:outline-none focus:border-rose-deep"
+              />
+            </div>
+
+            <div class="relative">
+              <label for="catalog-sort-select" class="sr-only">Sort fragrances</label>
+              <select
+                id="catalog-sort-select"
+                class="min-h-[42px] pl-4 pr-9 rounded-full bg-white border border-[#E4DCE6] text-xs sm:text-sm font-medium text-slate-plum focus:outline-none focus:border-serene-blue appearance-none cursor-pointer"
+              >
+                <option value="featured">Sort: Featured Blooms</option>
+                <option value="rating">Sort: Highest Rated</option>
+                <option value="price-asc">Sort: Price: Low to High</option>
+                <option value="price-desc">Sort: Price: High to Low</option>
+              </select>
+              <i class="ph ph-caret-down absolute right-3.5 top-1/2 -translate-y-1/2 text-soft-slate text-xs pointer-events-none" aria-hidden="true"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category Filter Tabs -->
+        <div
+          id="category-tabs"
+          class="flex items-center gap-2 overflow-x-auto pb-2 mb-6 calm-scroll"
+          role="tablist"
+          aria-label="Fragrance categories"
+        >
+          <!-- Populated dynamically by JS -->
+        </div>
+
+        <!-- Active Mood Filter Banner -->
+        <div
+          id="active-mood-banner"
+          class="hidden mb-6 px-5 py-3.5 rounded-2xl bg-gradient-to-r from-blush-mist via-white to-ice-blue border border-[#E5DAE7] flex flex-wrap items-center justify-between gap-3"
+        >
+          <div class="flex items-center gap-2.5 text-sm">
+            <i class="ph ph-flower text-rose-deep text-lg" aria-hidden="true"></i>
+            <span class="text-soft-slate">Showing mood:</span>
+            <strong id="active-mood-name" class="text-slate-plum font-semibold"></strong>
+            <span id="active-mood-desc" class="text-xs text-soft-slate hidden sm:inline"></span>
+          </div>
+          <button
+            type="button"
+            id="reset-mood-btn"
+            class="min-h-[36px] px-4 py-1.5 rounded-full bg-white border border-[#DFD4E2] hover:border-rose-deep text-xs font-semibold text-slate-plum transition-colors whitespace-nowrap"
+          >
+            Show All Blooms
+          </button>
+        </div>
+
+        <!-- Results Counter -->
+        <div class="flex items-center justify-between text-xs text-soft-slate mb-5">
+          <p id="catalog-count-label" class="tabular-nums">Showing 18 fragrances</p>
+          <button
+            type="button"
+            id="clear-all-filters-btn"
+            class="hidden text-rose-deep font-semibold hover:underline"
+          >
+            Reset all filters
+          </button>
+        </div>
+
+        <!-- Product Grid -->
+        <div id="product-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
+          <!-- 18 Studio Product Cards rendered by JS -->
+        </div>
+
+        <!-- Empty Search State -->
+        <div
+          id="catalog-empty-state"
+          class="hidden text-center py-16 px-6 rounded-3xl bg-gradient-to-br from-blush-mist/50 to-ice-blue/50 border border-[#E7DCE6]"
+        >
+          <i class="ph ph-flower-lotus text-4xl text-rose-deep mb-3 inline-block" aria-hidden="true"></i>
+          <h3 class="font-display text-2xl font-semibold text-slate-plum">No matching blooms found</h3>
+          <p class="text-sm text-soft-slate mt-1.5 max-w-md mx-auto">
+            Try clearing your search term or switching back to all six fragrance collections.
+          </p>
+          <button
+            type="button"
+            id="empty-reset-btn"
+            class="mt-5 min-h-[42px] px-6 py-2 rounded-full bg-rose-deep text-white text-xs font-semibold hover:bg-[#B86A84] transition-colors"
+          >
+            View All 18 Fragrances
+          </button>
+        </div>
+      </section>
+
+      <!-- EDUCATIONAL FRAGRANCE GUIDE & LAYERING SECTION -->
+      <section
+        id="fragrance-guide"
+        class="bg-gradient-to-b from-ice-blue/55 via-morning-cloud to-blush-mist/45 border-y border-[#E9E2EC] py-16 sm:py-20 mt-8"
+      >
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
+          <div class="max-w-2xl">
+            <p class="text-xs font-semibold uppercase tracking-[0.18em] text-serene-blue">Fragrance Education</p>
+            <h2 class="font-display text-3xl sm:text-4xl font-semibold text-slate-plum mt-1">
+              The Sweet-Floral Fragrance Guide &amp; Layering Ritual
+            </h2>
+            <p class="text-sm sm:text-base text-soft-slate mt-2.5 leading-relaxed">
+              Understand how calm botanical notes unfold from the first bright spray to the soft evening veil, and how our six formats pair effortlessly.
+            </p>
+          </div>
+
+          <!-- 1. Interactive 3-Layer Scent Pyramid Explorer -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-white rounded-3xl border border-[#E6DCE7] p-6 sm:p-8 shadow-xs">
+            <div class="lg:col-span-5 flex flex-col items-center">
+              <p class="text-xs font-semibold uppercase tracking-[0.16em] text-soft-slate mb-4">
+                Tap a Pyramid Layer to Explore
+              </p>
+              <!-- Interactive SVG Scent Pyramid -->
+              <svg viewBox="0 0 320 260" class="w-full max-w-[300px] h-auto select-none" role="group" aria-label="Interactive 3-layer fragrance pyramid">
+                <!-- Top Layer -->
+                <g id="pyramid-btn-top" class="cursor-pointer transition-opacity" tabindex="0" role="button" aria-label="Inspect Top Notes (0 to 30 minutes)">
+                  <polygon
+                    id="pyramid-poly-top"
+                    points="160,18 112,92 208,92"
+                    fill="#FBEFF4"
+                    stroke="#C87A93"
+                    stroke-width="2"
+                  />
+                  <text x="160" y="68" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="11" font-weight="700" fill="#2B2D3D">
+                    TOP NOTES
+                  </text>
+                  <text x="160" y="82" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="9" fill="#5D6178">
+                    0–30 mins
+                  </text>
+                </g>
+
+                <!-- Heart Layer -->
+                <g id="pyramid-btn-heart" class="cursor-pointer transition-opacity" tabindex="0" role="button" aria-label="Inspect Heart Notes (1 to 4 hours)">
+                  <polygon
+                    id="pyramid-poly-heart"
+                    points="106,100 214,100 256,168 64,168"
+                    fill="#EEF5FB"
+                    stroke="#7EA8C9"
+                    stroke-width="1.5"
+                  />
+                  <text x="160" y="132" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="11" font-weight="700" fill="#2B2D3D">
+                    HEART NOTES
+                  </text>
+                  <text x="160" y="148" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="9" fill="#5D6178">
+                    1–4 hours
+                  </text>
+                </g>
+
+                <!-- Base Layer -->
+                <g id="pyramid-btn-base" class="cursor-pointer transition-opacity" tabindex="0" role="button" aria-label="Inspect Base Notes (6+ hours)">
+                  <polygon
+                    id="pyramid-poly-base"
+                    points="58,176 262,176 302,242 18,242"
+                    fill="#EBF0FA"
+                    stroke="#7C96C8"
+                    stroke-width="1.5"
+                  />
+                  <text x="160" y="208" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="11" font-weight="700" fill="#2B2D3D">
+                    BASE NOTES
+                  </text>
+                  <text x="160" y="224" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="9" fill="#5D6178">
+                    6+ hours
+                  </text>
+                </g>
+              </svg>
+            </div>
+
+            <div class="lg:col-span-7 space-y-5">
+              <!-- Layer Switcher Tabs -->
+              <div class="flex flex-wrap gap-2">
+                <button
+                  type="button"
+                  data-pyramid="top"
+                  class="pyramid-tab min-h-[40px] px-4 py-2 rounded-full text-xs font-semibold border transition-colors whitespace-nowrap"
+                >
+                  Top Notes (0–30 mins)
+                </button>
+                <button
+                  type="button"
+                  data-pyramid="heart"
+                  class="pyramid-tab min-h-[40px] px-4 py-2 rounded-full text-xs font-semibold border transition-colors whitespace-nowrap"
+                >
+                  Heart Notes (1–4 hours)
+                </button>
+                <button
+                  type="button"
+                  data-pyramid="base"
+                  class="pyramid-tab min-h-[40px] px-4 py-2 rounded-full text-xs font-semibold border transition-colors whitespace-nowrap"
+                >
+                  Base Notes (6+ hours)
+                </button>
+              </div>
+
+              <!-- Dynamic Layer Explanation -->
+              <div id="pyramid-detail-panel" class="space-y-3 pt-1">
+                <p id="pyramid-stage-kicker" class="text-xs font-semibold uppercase tracking-[0.16em] text-rose-deep"></p>
+                <h3 id="pyramid-stage-title" class="font-display text-2xl sm:text-3xl font-semibold text-slate-plum"></h3>
+                <p id="pyramid-stage-desc" class="text-sm text-soft-slate leading-relaxed"></p>
+                <div class="pt-2">
+                  <p class="text-xs font-semibold text-slate-plum mb-2">Signature Freshrances Accords:</p>
+                  <p id="pyramid-stage-notes" class="text-sm font-medium text-rose-deep"></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. 6-Format Concentration & Longevity Table -->
+          <div class="bg-white rounded-3xl border border-[#E6DCE7] p-6 sm:p-8 shadow-xs">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-6">
+              <div>
+                <h3 class="font-display text-2xl sm:text-3xl font-semibold text-slate-plum">
+                  Six Formats, Compared Clearly
+                </h3>
+                <p class="text-xs sm:text-sm text-soft-slate mt-1">
+                  Compare aromatic oil concentration, wear longevity, and ideal daily moments across every Freshrances vessel.
+                </p>
+              </div>
+            </div>
+
+            <div class="overflow-x-auto">
+              <table class="w-full text-left border-collapse min-w-[640px]">
+                <thead>
+                  <tr class="border-b border-[#EAE2EC] text-[11px] uppercase tracking-[0.14em] text-soft-slate">
+                    <th class="py-3 pr-4 font-semibold">Collection Format</th>
+                    <th class="py-3 px-4 font-semibold">Oil Concentration</th>
+                    <th class="py-3 px-4 font-semibold">Wear Duration</th>
+                    <th class="py-3 px-4 font-semibold">Scent Projection</th>
+                    <th class="py-3 pl-4 font-semibold">Best Daily Occasions</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-[#F2ECF3] text-sm tabular-nums">
+                  <tr class="hover:bg-blush-mist/30 transition-colors">
+                    <td class="py-3.5 pr-4 font-semibold text-slate-plum">Perfumes (Eau de Parfum)</td>
+                    <td class="py-3.5 px-4 text-soft-slate">16% – 20%</td>
+                    <td class="py-3.5 px-4 text-soft-slate">6 – 8 hours</td>
+                    <td class="py-3.5 px-4 text-soft-slate">Graceful aura</td>
+                    <td class="py-3.5 pl-4 text-soft-slate">Signature daily wear, brunches, evening dinners</td>
+                  </tr>
+                  <tr class="hover:bg-blush-mist/30 transition-colors">
+                    <td class="py-3.5 pr-4 font-semibold text-slate-plum">Roll-Ons (Botanical Oil)</td>
+                    <td class="py-3.5 px-4 text-soft-slate">18% – 22%</td>
+                    <td class="py-3.5 px-4 text-soft-slate">7 – 9 hours</td>
+                    <td class="py-3.5 px-4 text-soft-slate">Close &amp; intimate</td>
+                    <td class="py-3.5 pl-4 text-soft-slate">Pulse-point touch-ups, flights, handbag carry</td>
+                  </tr>
+                  <tr class="hover:bg-ice-blue/40 transition-colors">
+                    <td class="py-3.5 pr-4 font-semibold text-slate-plum">Body Sprays</td>
+                    <td class="py-3.5 px-4 text-soft-slate">6% – 9%</td>
+                    <td class="py-3.5 px-4 text-soft-slate">3 – 5 hours</td>
+                    <td class="py-3.5 px-4 text-soft-slate">Airy &amp; bright</td>
+                    <td class="py-3.5 pl-4 text-soft-slate">All-over morning veil, active days, layering</td>
+                  </tr>
+                  <tr class="hover:bg-ice-blue/40 transition-colors">
+                    <td class="py-3.5 pr-4 font-semibold text-slate-plum">Mists (Hair &amp; Body)</td>
+                    <td class="py-3.5 px-4 text-soft-slate">4% – 6%</td>
+                    <td class="py-3.5 px-4 text-soft-slate">2 – 4 hours</td>
+                    <td class="py-3.5 px-4 text-soft-slate">Feather-light cloud</td>
+                    <td class="py-3.5 pl-4 text-soft-slate">Hair ends, sun-warmed skin, pillow &amp; linens</td>
+                  </tr>
+                  <tr class="hover:bg-periwinkle-dew/40 transition-colors">
+                    <td class="py-3.5 pr-4 font-semibold text-slate-plum">Splash (Botanical Water)</td>
+                    <td class="py-3.5 px-4 text-soft-slate">2% – 4%</td>
+                    <td class="py-3.5 px-4 text-soft-slate">1.5 – 3 hours</td>
+                    <td class="py-3.5 px-4 text-soft-slate">Crisp &amp; cooling</td>
+                    <td class="py-3.5 pl-4 text-soft-slate">Post-shower skin cooling, humid afternoons</td>
+                  </tr>
+                  <tr class="hover:bg-periwinkle-dew/40 transition-colors">
+                    <td class="py-3.5 pr-4 font-semibold text-slate-plum">Deodorants (Silk Balm)</td>
+                    <td class="py-3.5 px-4 text-soft-slate">2% – 3%</td>
+                    <td class="py-3.5 px-4 text-soft-slate">12 – 24h freshness</td>
+                    <td class="py-3.5 px-4 text-soft-slate">Clean skin veil</td>
+                    <td class="py-3.5 pl-4 text-soft-slate">Base freshness layer under any floral scent</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- 3. 3-Step Gentle Layering Ritual -->
+          <div>
+            <h3 class="font-display text-2xl sm:text-3xl font-semibold text-slate-plum mb-6">
+              The 3-Step Gentle Layering Ritual
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <article class="bg-white rounded-2xl border border-[#E6DCE7] p-6 space-y-2.5">
+                <p class="text-xs font-semibold uppercase tracking-[0.16em] text-serene-blue">01. Cool &amp; Prep</p>
+                <h4 class="font-display text-2xl font-semibold text-slate-plum">Splash &amp; Silk Balm</h4>
+                <p class="text-sm text-soft-slate leading-relaxed">
+                  Begin right after a warm shower with a chilled botanical Splash and a swipe of Cotton Peony Deodorant to create a clean, hydrated canvas.
+                </p>
+              </article>
+
+              <article class="bg-white rounded-2xl border border-[#E6DCE7] p-6 space-y-2.5">
+                <p class="text-xs font-semibold uppercase tracking-[0.16em] text-rose-deep">02. Anchor Pulse Points</p>
+                <h4 class="font-display text-2xl font-semibold text-slate-plum">Roll-On &amp; Eau de Parfum</h4>
+                <p class="text-sm text-soft-slate leading-relaxed">
+                  Glide a nourishing Roll-On across wrists and collarbone, then mist one or two sprays of Perfume above to lock in soft peony and vanilla warmth for 8+ hours.
+                </p>
+              </article>
+
+              <article class="bg-white rounded-2xl border border-[#E6DCE7] p-6 space-y-2.5">
+                <p class="text-xs font-semibold uppercase tracking-[0.16em] text-bluebell-accent">03. Veil &amp; Refresh</p>
+                <h4 class="font-display text-2xl font-semibold text-slate-plum">Hair &amp; Linen Mist</h4>
+                <p class="text-sm text-soft-slate leading-relaxed">
+                  Finish with a cloud of Rosewater Mist or Dewy Jasmine Body Spray over scarves and hair lengths for a gentle trail that refreshes whenever you move.
+                </p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CUSTOMER REVIEWS & INTERACTIVE FEEDBACK -->
+      <section id="reviews" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+          <!-- Verified Buyer Reviews List -->
+          <div class="lg:col-span-7 space-y-6">
+            <div class="flex flex-wrap items-end justify-between gap-4">
+              <div>
+                <p class="text-xs font-semibold uppercase tracking-[0.18em] text-rose-deep">Community Stories</p>
+                <h2 class="font-display text-3xl sm:text-4xl font-semibold text-slate-plum mt-1">
+                  Loved for Calm, Sweet Freshness
+                </h2>
+              </div>
+              <div class="text-right tabular-nums">
+                <p id="reviews-avg-display" class="font-display text-2xl font-semibold text-slate-plum">4.9 / 5.0</p>
+                <p id="reviews-count-display" class="text-xs text-soft-slate">Based on verified buyer notes</p>
+              </div>
+            </div>
+
+            <div id="reviews-list" class="space-y-4">
+              <!-- Reviews rendered dynamically -->
+            </div>
+          </div>
+
+          <!-- Interactive "Share Your Scent Story" Form -->
+          <div class="lg:col-span-5 bg-gradient-to-br from-blush-mist/70 via-white to-ice-blue/70 rounded-3xl border border-[#E6DCE7] p-6 sm:p-8 shadow-xs">
+            <h3 class="font-display text-2xl sm:text-3xl font-semibold text-slate-plum">Share Your Scent Story</h3>
+            <p class="text-xs sm:text-sm text-soft-slate mt-1 mb-5">
+              Tell fellow bloom lovers how a Freshrances ritual feels on your skin. Your note appears immediately.
+            </p>
+
+            <form id="review-form" class="space-y-4">
+              <div>
+                <label for="review-product" class="block text-xs font-semibold text-slate-plum mb-1.5">
+                  Select Fragrance
+                </label>
+                <select
+                  id="review-product"
+                  required
+                  class="w-full min-h-[42px] px-3.5 rounded-xl bg-white border border-[#E4DCE6] text-sm text-slate-plum focus:outline-none focus:border-rose-deep"
+                >
+                  <!-- Populated with all 18 fragrances -->
+                </select>
+              </div>
+
+              <div>
+                <span class="block text-xs font-semibold text-slate-plum mb-1.5">Your Rating</span>
+                <div id="review-star-picker" class="flex items-center gap-1.5" role="radiogroup" aria-label="Star rating">
+                  <!-- 5 star buttons -->
+                </div>
+                <input type="hidden" id="review-rating-value" value="5" />
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                <div>
+                  <label for="review-name" class="block text-xs font-semibold text-slate-plum mb-1.5">Your Name</label>
+                  <input
+                    type="text"
+                    id="review-name"
+                    required
+                    placeholder="e.g., Clara Bennett"
+                    class="w-full min-h-[42px] px-3.5 rounded-xl bg-white border border-[#E4DCE6] text-sm text-slate-plum focus:outline-none focus:border-rose-deep"
+                  />
+                </div>
+                <div>
+                  <label for="review-city" class="block text-xs font-semibold text-slate-plum mb-1.5">City (Optional)</label>
+                  <input
+                    type="text"
+                    id="review-city"
+                    placeholder="e.g., Seattle"
+                    class="w-full min-h-[42px] px-3.5 rounded-xl bg-white border border-[#E4DCE6] text-sm text-slate-plum focus:outline-none focus:border-rose-deep"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label for="review-headline" class="block text-xs font-semibold text-slate-plum mb-1.5">Headline</label>
+                <input
+                  type="text"
+                  id="review-headline"
+                  required
+                  placeholder="Light, sweet peony without any heaviness"
+                  class="w-full min-h-[42px] px-3.5 rounded-xl bg-white border border-[#E4DCE6] text-sm text-slate-plum focus:outline-none focus:border-rose-deep"
+                />
+              </div>
+
+              <div>
+                <label for="review-text" class="block text-xs font-semibold text-slate-plum mb-1.5">Your Experience</label>
+                <textarea
+                  id="review-text"
+                  rows="3"
+                  required
+                  placeholder="Describe the opening notes, how long it lasted, or how you layered it..."
+                  class="w-full p-3.5 rounded-xl bg-white border border-[#E4DCE6] text-sm text-slate-plum focus:outline-none focus:border-rose-deep"
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                class="btn-silk w-full min-h-[44px] rounded-full bg-rose-deep hover:bg-[#B86A84] text-white text-sm font-semibold shadow-sm"
+              >
+                Publish Scent Story
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- OFFICIAL BRAND EMAIL & CONTACT DESK -->
+      <section
+        id="contact"
+        class="bg-gradient-to-br from-periwinkle-dew/60 via-morning-cloud to-blush-mist/60 border-t border-[#E8E0EC] py-16 sm:py-20"
+      >
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+            <div class="lg:col-span-5 space-y-6">
+              <div>
+                <p class="text-xs font-semibold uppercase tracking-[0.18em] text-serene-blue">Official Brand Desk</p>
+                <h2 class="font-display text-3xl sm:text-4xl font-semibold text-slate-plum mt-1">
+                  Write to the Freshrances Atelier
+                </h2>
+                <p class="text-sm sm:text-base text-soft-slate mt-2.5 leading-relaxed">
+                  Whether you would like personalized sweet-floral pairing advice, gifting assistance, or an update on your parcel, our fragrance desk responds warmly and promptly.
+                </p>
+              </div>
+
+              <!-- Email Cards -->
+              <div class="space-y-4">
+                <div class="p-5 rounded-2xl bg-white border border-[#E4DCE8] space-y-3">
+                  <div class="flex items-center justify-between gap-2">
+                    <span class="text-xs font-semibold uppercase tracking-[0.14em] text-rose-deep">Concierge &amp; Scent Advice</span>
+                    <span class="text-xs text-soft-slate">Replies within 4 hrs</span>
+                  </div>
+                  <div class="flex flex-wrap items-center justify-between gap-3">
+                    <a
+                      href="mailto:concierge@freshrances.com"
+                      class="text-base font-semibold text-slate-plum hover:text-rose-deep transition-colors"
+                    >
+                      concierge@freshrances.com
+                    </a>
+                    <button
+                      type="button"
+                      id="copy-concierge-email"
+                      class="min-h-[38px] px-4 py-1.5 rounded-full bg-blush-mist hover:bg-[#F5DCE6] border border-[#E7CED9] text-xs font-semibold text-slate-plum inline-flex items-center gap-1.5 transition-colors whitespace-nowrap"
+                    >
+                      <i class="ph ph-copy text-sm" aria-hidden="true"></i>
+                      <span id="copy-email-label">Copy Email</span>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="p-5 rounded-2xl bg-white border border-[#E4DCE8] space-y-2">
+                  <div class="flex items-center justify-between gap-2">
+                    <span class="text-xs font-semibold uppercase tracking-[0.14em] text-serene-blue">Orders &amp; Parcel Care</span>
+                    <span class="text-xs text-soft-slate">Mon–Sat · 9am – 6pm</span>
+                  </div>
+                  <a
+                    href="mailto:orders@freshrances.com"
+                    class="block text-base font-semibold text-slate-plum hover:text-serene-blue transition-colors"
+                  >
+                    orders@freshrances.com
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Direct Inquiry Form -->
+            <div class="lg:col-span-7 bg-white rounded-3xl border border-[#E4DCE8] p-6 sm:p-8 shadow-xs">
+              <h3 class="font-display text-2xl sm:text-3xl font-semibold text-slate-plum mb-1">
+                Send a Direct Message
+              </h3>
+              <p class="text-xs sm:text-sm text-soft-slate mb-5">
+                Your note goes straight to our atelier concierge team.
+              </p>
+
+              <form id="contact-form" class="space-y-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label for="contact-name" class="block text-xs font-semibold text-slate-plum mb-1.5">Full Name</label>
+                    <input
+                      type="text"
+                      id="contact-name"
+                      required
+                      placeholder="Your name"
+                      class="w-full min-h-[42px] px-3.5 rounded-xl bg-morning-cloud border border-[#E4DCE6] text-sm text-slate-plum focus:outline-none focus:border-serene-blue"
+                    />
+                  </div>
+                  <div>
+                    <label for="contact-email" class="block text-xs font-semibold text-slate-plum mb-1.5">Email Address</label>
+                    <input
+                      type="email"
+                      id="contact-email"
+                      required
+                      placeholder="you@example.com"
+                      class="w-full min-h-[42px] px-3.5 rounded-xl bg-morning-cloud border border-[#E4DCE6] text-sm text-slate-plum focus:outline-none focus:border-serene-blue"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label for="contact-topic" class="block text-xs font-semibold text-slate-plum mb-1.5">Topic</label>
+                  <select
+                    id="contact-topic"
+                    class="w-full min-h-[42px] px-3.5 rounded-xl bg-morning-cloud border border-[#E4DCE6] text-sm text-slate-plum focus:outline-none focus:border-serene-blue"
+                  >
+                    <option value="Scent Pairing & Layering">Scent Pairing &amp; Layering Advice</option>
+                    <option value="Order & Delivery Inquiry">Order &amp; Delivery Inquiry</option>
+                    <option value="Gifting & Discovery Trio">Gifting &amp; Discovery Trio</option>
+                    <option value="Wholesale & Atelier Press">Wholesale &amp; Atelier Press</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label for="contact-message" class="block text-xs font-semibold text-slate-plum mb-1.5">Message</label>
+                  <textarea
+                    id="contact-message"
+                    rows="4"
+                    required
+                    placeholder="Share your question or preferred floral notes..."
+                    class="w-full p-3.5 rounded-xl bg-morning-cloud border border-[#E4DCE6] text-sm text-slate-plum focus:outline-none focus:border-serene-blue"
+                  ></textarea>
+                </div>
+
+                <div class="flex flex-wrap items-center justify-between gap-4 pt-1">
+                  <p id="contact-confirmation" class="text-xs font-medium text-serene-blue hidden">
+                    Thank you! Your message has been received by concierge@freshrances.com.
+                  </p>
+                  <button
+                    type="submit"
+                    class="btn-silk min-h-[44px] px-7 py-2.5 rounded-full bg-serene-blue hover:bg-[#6A94B6] text-white text-sm font-semibold shadow-xs ml-auto"
+                  >
+                    Send Inquiry
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-white border-t border-[#EAE3EC] py-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+        <div>
+          <span class="font-display text-2xl font-semibold text-slate-plum">Freshrances</span>
+          <p class="text-xs text-soft-slate mt-1">
+            Sweet Morning Petals · White Peony, Candied Pear, Rosewater &amp; Bluebell
+          </p>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-6 text-xs font-medium text-soft-slate">
+          <a href="#collections" class="hover:text-rose-deep transition-colors">Collections</a>
+          <a href="#floral-moods" class="hover:text-rose-deep transition-colors">Floral Moods</a>
+          <a href="#fragrance-guide" class="hover:text-rose-deep transition-colors">Fragrance Guide</a>
+          <a href="#reviews" class="hover:text-rose-deep transition-colors">Reviews</a>
+          <a href="mailto:concierge@freshrances.com" class="hover:text-rose-deep transition-colors">concierge@freshrances.com</a>
+        </div>
+
+        <p class="text-xs text-soft-slate">&copy; <span id="footer-year"></span> Freshrances Atelier. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- =================================================================== -->
+    <!-- NOTES & STORY INSPECTION MODAL                                      -->
+    <!-- =================================================================== -->
+    <div
+      id="notes-modal-backdrop"
+      class="hidden fixed inset-0 z-50 bg-slate-plum/40 backdrop-blur-xs flex items-center justify-center p-4"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="notes-modal-title"
+    >
+      <div
+        class="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto calm-scroll rounded-3xl bg-morning-cloud border border-[#E6DCE7] shadow-2xl p-6 sm:p-8"
+      >
+        <button
+          type="button"
+          id="close-notes-modal"
+          aria-label="Close Notes & Story modal"
+          class="absolute top-4 right-4 min-h-[40px] min-w-[40px] rounded-full bg-white border border-[#E5DCE7] hover:bg-blush-mist flex items-center justify-center text-slate-plum transition-colors z-10"
+        >
+          <i class="ph ph-x text-lg" aria-hidden="true"></i>
+        </button>
+
+        <div id="notes-modal-body" class="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 items-center">
+          <!-- Populated dynamically -->
+        </div>
+      </div>
+    </div>
+
+    <!-- =================================================================== -->
+    <!-- SLIDE-OUT SCENT BAG DRAWER                                          -->
+    <!-- =================================================================== -->
+    <div
+      id="bag-drawer-backdrop"
+      class="hidden fixed inset-0 z-50 bg-slate-plum/35 backdrop-blur-xs flex justify-end"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="bag-drawer-title"
+    >
+      <div class="w-full max-w-md h-full bg-morning-cloud border-l border-[#E6DCE7] shadow-2xl flex flex-col">
+        <!-- Header -->
+        <div class="px-6 py-5 border-b border-[#EAE2EC] flex items-center justify-between">
+          <div>
+            <h2 id="bag-drawer-title" class="font-display text-2xl font-semibold text-slate-plum">Your Scent Bag</h2>
+            <p id="bag-item-count-sub" class="text-xs text-soft-slate tabular-nums">0 items selected</p>
+          </div>
+          <button
+            type="button"
+            id="close-bag-btn"
+            aria-label="Close Scent Bag"
+            class="min-h-[40px] min-w-[40px] rounded-full bg-white border border-[#E5DCE7] hover:bg-blush-mist flex items-center justify-center text-slate-plum"
+          >
+            <i class="ph ph-x text-lg" aria-hidden="true"></i>
+          </button>
+        </div>
+
+        <!-- Complimentary Shipping & Trio Progress Bar -->
+        <div class="px-6 py-3.5 bg-gradient-to-r from-blush-mist/70 to-ice-blue/70 border-b border-[#EAE2EC]">
+          <p id="bag-progress-text" class="text-xs font-medium text-slate-plum mb-2">
+            Add $65.00 more for complimentary shipping &amp; a Sweet-Floral Discovery Trio.
+          </p>
+          <div class="w-full h-2 rounded-full bg-white/90 overflow-hidden border border-[#E5DCE7]">
+            <div
+              id="bag-progress-fill"
+              class="h-full bg-gradient-to-r from-powder-rose to-serene-blue transition-all duration-300"
+              style="width: 0%"
+            ></div>
+          </div>
+        </div>
+
+        <!-- Items List -->
+        <div id="bag-items-container" class="flex-1 overflow-y-auto calm-scroll px-6 py-4 space-y-3.5">
+          <!-- Rendered dynamically -->
+        </div>
+
+        <!-- Footer Totals & Checkout CTA -->
+        <div class="px-6 py-5 bg-white border-t border-[#EAE2EC] space-y-3.5">
+          <div class="space-y-1.5 text-sm tabular-nums">
+            <div class="flex items-center justify-between text-soft-slate">
+              <span>Subtotal</span>
+              <span id="bag-subtotal">$0.00</span>
+            </div>
+            <div class="flex items-center justify-between text-soft-slate">
+              <span>Shipping</span>
+              <span id="bag-shipping">$6.00</span>
+            </div>
+            <div id="bag-trio-row" class="hidden flex items-center justify-between text-rose-deep text-xs font-semibold">
+              <span>Sweet-Floral Discovery Trio</span>
+              <span>Complimentary</span>
+            </div>
+            <div class="flex items-center justify-between text-base font-semibold text-slate-plum pt-2 border-t border-[#F0EAF2]">
+              <span>Estimated Total</span>
+              <span id="bag-total">$0.00</span>
+            </div>
+          </div>
+
+          <button
+            type="button"
+            id="proceed-checkout-btn"
+            disabled
+            class="btn-silk w-full min-h-[46px] rounded-full bg-rose-deep hover:bg-[#B86A84] disabled:opacity-45 disabled:pointer-events-none text-white text-sm font-semibold shadow-sm"
+          >
+            Proceed to Checkout
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- =================================================================== -->
+    <!-- ONLINE ORDER CHECKOUT MODAL                                         -->
+    <!-- =================================================================== -->
+    <div
+      id="checkout-modal-backdrop"
+      class="hidden fixed inset-0 z-50 bg-slate-plum/45 backdrop-blur-xs flex items-center justify-center p-4"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="checkout-modal-title"
+    >
+      <div class="relative w-full max-w-2xl max-h-[92vh] overflow-y-auto calm-scroll rounded-3xl bg-morning-cloud border border-[#E6DCE7] shadow-2xl p-6 sm:p-8">
+        <button
+          type="button"
+          id="close-checkout-modal"
+          aria-label="Close checkout"
+          class="absolute top-4 right-4 min-h-[40px] min-w-[40px] rounded-full bg-white border border-[#E5DCE7] hover:bg-blush-mist flex items-center justify-center text-slate-plum"
+        >
+          <i class="ph ph-x text-lg" aria-hidden="true"></i>
+        </button>
+
+        <!-- Checkout Form View -->
+        <div id="checkout-form-view">
+          <p class="text-xs font-semibold uppercase tracking-[0.16em] text-rose-deep">Freshrances Parcel Checkout</p>
+          <h2 id="checkout-modal-title" class="font-display text-3xl font-semibold text-slate-plum mt-0.5 mb-5">
+            Complete Your Order
+          </h2>
+
+          <!-- Auto-fill Saved Profile Banner -->
+          <div
+            id="checkout-autofill-bar"
+            class="hidden mb-5 px-4 py-3 rounded-2xl bg-ice-blue/80 border border-[#D4E2EF] flex flex-wrap items-center justify-between gap-3"
+          >
+            <p class="text-xs text-slate-plum">
+              Saved profile ready for <strong id="checkout-saved-name"></strong>.
+            </p>
+            <button
+              type="button"
+              id="checkout-autofill-btn"
+              class="min-h-[34px] px-3.5 py-1 rounded-full bg-white border border-[#C8DAEB] text-xs font-semibold text-slate-plum hover:border-serene-blue"
+            >
+              Auto-Fill Details
+            </button>
+          </div>
+
+          <form id="checkout-form" class="space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="checkout-name" class="block text-xs font-semibold text-slate-plum mb-1">Full Name</label>
+                <input
+                  type="text"
+                  id="checkout-name"
+                  required
+                  placeholder="Elena Mercer"
+                  class="w-full min-h-[42px] px-3.5 rounded-xl bg-white border border-[#E4DCE6] text-sm text-slate-plum focus:outline-none focus:border-rose-deep"
+                />
+              </div>
+              <div>
+                <label for="checkout-phone" class="block text-xs font-semibold text-slate-plum mb-1">Phone Number</label>
+                <input
+                  type="tel"
+                  id="checkout-phone"
+                  required
+                  placeholder="+1 (555) 234-8910"
+                  class="w-full min-h-[42px] px-3.5 rounded-xl bg-white border border-[#E4DCE6] text-sm text-slate-plum focus:outline-none focus:border-rose-deep"
+                />
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="checkout-email" class="block text-xs font-semibold text-slate-plum mb-1">Email Address</label>
+                <input
+                  type="email"
+                  id="checkout-email"
+                  required
+                  placeholder="elena@example.com"
+                  class="w-full min-h-[42px] px-3.5 rounded-xl bg-white border border-[#E4DCE6] text-sm text-slate-plum focus:outline-none focus:border-rose-deep"
+                />
+              </div>
+              <div>
+                <label for="checkout-city" class="block text-xs font-semibold text-slate-plum mb-1">City</label>
+                <input
+                  type="text"
+                  id="checkout-city"
+                  required
+                  placeholder="Portland"
+                  class="w-full min-h-[42px] px-3.5 rounded-xl bg-white border border-[#E4DCE6] text-sm text-slate-plum focus:outline-none focus:border-rose-deep"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label for="checkout-address" class="block text-xs font-semibold text-slate-plum mb-1">Delivery Address</label>
+              <input
+                type="text"
+                id="checkout-address"
+                required
+                placeholder="412 Morning Blossom Lane, Apt 3B"
+                class="w-full min-h-[42px] px-3.5 rounded-xl bg-white border border-[#E4DCE6] text-sm text-slate-plum focus:outline-none focus:border-rose-deep"
+              />
+            </div>
+
+            <!-- Payment Method -->
+            <div class="pt-1">
+              <span class="block text-xs font-semibold text-slate-plum mb-2">Payment Method</span>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <label class="flex items-center gap-3 p-3.5 rounded-2xl bg-white border border-[#E4DCE6] cursor-pointer has-[:checked]:border-rose-deep has-[:checked]:bg-blush-mist/40">
+                  <input type="radio" name="paymentMethod" value="Cash on Delivery" checked class="accent-[#C87A93]" />
+                  <div>
+                    <p class="text-sm font-semibold text-slate-plum">Cash on Delivery</p>
+                    <p class="text-xs text-soft-slate">Pay calmly when your parcel arrives</p>
+                  </div>
+                </label>
+                <label class="flex items-center gap-3 p-3.5 rounded-2xl bg-white border border-[#E4DCE6] cursor-pointer has-[:checked]:border-serene-blue has-[:checked]:bg-ice-blue/50">
+                  <input type="radio" name="paymentMethod" value="Card / Online Transfer" class="accent-[#7EA8C9]" />
+                  <div>
+                    <p class="text-sm font-semibold text-slate-plum">Card / Online Transfer</p>
+                    <p class="text-xs text-soft-slate">Instant digital confirmation</p>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <div id="card-reference-wrap" class="hidden p-4 rounded-2xl bg-ice-blue/60 border border-[#D4E2EF] grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label for="checkout-card-last4" class="block text-xs font-semibold text-slate-plum mb-1">Card Ending / Transfer Ref</label>
+                <input
+                  type="text"
+                  id="checkout-card-last4"
+                  placeholder="4242 or Transfer ID"
+                  class="w-full min-h-[40px] px-3 rounded-xl bg-white border border-[#D4E2EF] text-sm text-slate-plum focus:outline-none"
+                />
+              </div>
+              <div>
+                <label for="checkout-card-holder" class="block text-xs font-semibold text-slate-plum mb-1">Name on Card / Account</label>
+                <input
+                  type="text"
+                  id="checkout-card-holder"
+                  placeholder="Elena Mercer"
+                  class="w-full min-h-[40px] px-3 rounded-xl bg-white border border-[#D4E2EF] text-sm text-slate-plum focus:outline-none"
+                />
+              </div>
+            </div>
+
+            <label class="flex items-center gap-2.5 text-xs text-soft-slate cursor-pointer pt-1">
+              <input type="checkbox" id="checkout-save-profile" checked class="rounded accent-[#C87A93]" />
+              <span>Save these details to My Profile for faster future checkouts</span>
+            </label>
+
+            <!-- Summary Box -->
+            <div class="p-4 rounded-2xl bg-white border border-[#E6DCE7] flex flex-wrap items-center justify-between gap-4 tabular-nums">
+              <div>
+                <p id="checkout-summary-items" class="text-xs text-soft-slate">0 items</p>
+                <p id="checkout-summary-total" class="text-lg font-semibold text-slate-plum">$0.00</p>
+              </div>
+              <button
+                type="submit"
+                class="btn-silk min-h-[44px] px-7 py-2.5 rounded-full bg-rose-deep hover:bg-[#B86A84] text-white text-sm font-semibold shadow-sm"
+              >
+                Confirm &amp; Place Order
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Order Confirmed Receipt View -->
+        <div id="checkout-receipt-view" class="hidden text-center py-4 space-y-5">
+          <div class="w-14 h-14 mx-auto rounded-full bg-blush-mist border border-[#E9CED9] flex items-center justify-center text-rose-deep">
+            <i class="ph ph-check-circle text-3xl" aria-hidden="true"></i>
+          </div>
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-[0.18em] text-serene-blue">Order Confirmed</p>
+            <h3 id="receipt-order-id" class="font-display text-3xl font-semibold text-slate-plum mt-1">Order #FR-000000</h3>
+            <p class="text-sm text-soft-slate mt-1">
+              Thank you for choosing Freshrances. Your parcel is being gently packed with chilled botanical care.
+            </p>
+          </div>
+          <div id="receipt-details-box" class="text-left p-5 rounded-2xl bg-white border border-[#E6DCE7] text-sm space-y-2 tabular-nums">
+            <!-- Populated dynamically -->
+          </div>
+          <div class="flex flex-wrap items-center justify-center gap-3 pt-2">
+            <button
+              type="button"
+              id="receipt-view-profile-btn"
+              class="min-h-[42px] px-6 py-2 rounded-full bg-ice-blue border border-[#D4E2EF] text-xs font-semibold text-slate-plum hover:border-serene-blue"
+            >
+              View in My Profile
+            </button>
+            <button
+              type="button"
+              id="receipt-continue-btn"
+              class="btn-silk min-h-[42px] px-6 py-2 rounded-full bg-rose-deep text-white text-xs font-semibold"
+            >
+              Continue Browsing
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- =================================================================== -->
+    <!-- MY PROFILE & ORDER HISTORY MODAL                                    -->
+    <!-- =================================================================== -->
+    <div
+      id="profile-modal-backdrop"
+      class="hidden fixed inset-0 z-50 bg-slate-plum/45 backdrop-blur-xs flex items-center justify-center p-4"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="profile-modal-title"
+    >
+      <div class="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto calm-scroll rounded-3xl bg-morning-cloud border border-[#E6DCE7] shadow-2xl p-6 sm:p-8">
+        <button
+          type="button"
+          id="close-profile-modal"
+          aria-label="Close My Profile"
+          class="absolute top-4 right-4 min-h-[40px] min-w-[40px] rounded-full bg-white border border-[#E5DCE7] hover:bg-blush-mist flex items-center justify-center text-slate-plum"
+        >
+          <i class="ph ph-x text-lg" aria-hidden="true"></i>
+        </button>
+
+        <p class="text-xs font-semibold uppercase tracking-[0.16em] text-serene-blue">Customer Account</p>
+        <h2 id="profile-modal-title" class="font-display text-3xl font-semibold text-slate-plum mt-0.5 mb-6">
+          My Profile &amp; Order History
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+          <!-- Saved Customer Details Form -->
+          <form id="profile-form" class="md:col-span-6 space-y-3.5">
+            <h3 class="text-sm font-semibold text-slate-plum">Saved Delivery Details</h3>
+            <div>
+              <label for="profile-name" class="block text-xs font-medium text-soft-slate mb-1">Full Name</label>
+              <input
+                type="text"
+                id="profile-name"
+                placeholder="Full Name"
+                class="w-full min-h-[40px] px-3.5 rounded-xl bg-white border border-[#E4DCE6] text-sm text-slate-plum focus:outline-none focus:border-serene-blue"
+              />
+            </div>
+            <div>
+              <label for="profile-phone" class="block text-xs font-medium text-soft-slate mb-1">Phone Number</label>
+              <input
+                type="tel"
+                id="profile-phone"
+                placeholder="Phone Number"
+                class="w-full min-h-[40px] px-3.5 rounded-xl bg-white border border-[#E4DCE6] text-sm text-slate-plum focus:outline-none focus:border-serene-blue"
+              />
+            </div>
+            <div>
+              <label for="profile-email" class="block text-xs font-medium text-soft-slate mb-1">Email Address</label>
+              <input
+                type="email"
+                id="profile-email"
+                placeholder="Email Address"
+                class="w-full min-h-[40px] px-3.5 rounded-xl bg-white border border-[#E4DCE6] text-sm text-slate-plum focus:outline-none focus:border-serene-blue"
+              />
+            </div>
+            <div>
+              <label for="profile-city" class="block text-xs font-medium text-soft-slate mb-1">City</label>
+              <input
+                type="text"
+                id="profile-city"
+                placeholder="City"
+                class="w-full min-h-[40px] px-3.5 rounded-xl bg-white border border-[#E4DCE6] text-sm text-slate-plum focus:outline-none focus:border-serene-blue"
+              />
+            </div>
+            <div>
+              <label for="profile-address" class="block text-xs font-medium text-soft-slate mb-1">Delivery Address</label>
+              <input
+                type="text"
+                id="profile-address"
+                placeholder="Street, Apt / Suite"
+                class="w-full min-h-[40px] px-3.5 rounded-xl bg-white border border-[#E4DCE6] text-sm text-slate-plum focus:outline-none focus:border-serene-blue"
+              />
+            </div>
+
+            <div class="flex items-center gap-2.5 pt-2">
+              <button
+                type="submit"
+                class="btn-silk min-h-[40px] px-5 py-2 rounded-full bg-serene-blue hover:bg-[#6A94B6] text-white text-xs font-semibold"
+              >
+                Save Profile
+              </button>
+              <button
+                type="button"
+                id="clear-profile-btn"
+                class="min-h-[40px] px-4 py-2 rounded-full bg-white border border-[#E4DCE6] hover:border-rose-deep text-xs font-semibold text-soft-slate hover:text-slate-plum"
+              >
+                Clear
+              </button>
+            </div>
+          </form>
+
+          <!-- Recent Orders List -->
+          <div class="md:col-span-6 space-y-3.5">
+            <h3 class="text-sm font-semibold text-slate-plum">Recent Orders</h3>
+            <div id="profile-orders-list" class="space-y-3 max-h-[360px] overflow-y-auto calm-scroll pr-1">
+              <!-- Orders rendered dynamically -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- =================================================================== -->
+    <!-- FRESHRANCES SCENT GUIDE CHATBOT                                    -->
+    <!-- =================================================================== -->
+    <div class="fixed bottom-5 right-5 z-40 flex flex-col items-end gap-3">
+      <!-- Chat Window -->
+      <div
+        id="chatbot-panel"
+        class="hidden w-[calc(100vw-2.5rem)] sm:w-[370px] h-[480px] max-h-[75vh] rounded-3xl bg-morning-cloud border border-[#E2D6E4] shadow-2xl flex flex-col overflow-hidden"
+        role="dialog"
+        aria-label="Freshrances Scent Guide Chatbot"
+      >
+        <!-- Chatbot Header -->
+        <div class="px-5 py-4 bg-gradient-to-r from-rose-deep to-serene-blue text-white flex items-center justify-between">
+          <div class="flex items-center gap-2.5">
+            <span class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
+              <i class="ph ph-flower-lotus text-lg" aria-hidden="true"></i>
+            </span>
+            <div>
+              <h3 class="text-sm font-semibold leading-tight">Freshrances Scent Guide</h3>
+              <p class="text-[11px] text-white/85">Sweet floral &amp; layering concierge</p>
+            </div>
+          </div>
+          <button
+            type="button"
+            id="close-chatbot-btn"
+            aria-label="Close Scent Guide chat"
+            class="min-h-[36px] min-w-[36px] rounded-full hover:bg-white/20 flex items-center justify-center transition-colors"
+          >
+            <i class="ph ph-x text-base" aria-hidden="true"></i>
+          </button>
+        </div>
+
+        <!-- Messages -->
+        <div id="chatbot-messages" class="flex-1 overflow-y-auto calm-scroll p-4 space-y-3 text-xs sm:text-sm">
+          <!-- Populated dynamically -->
+        </div>
+
+        <!-- Quick Reply Chips -->
+        <div id="chatbot-quick-chips" class="px-4 py-2 border-t border-[#ECE4EE] bg-white/80 flex items-center gap-1.5 overflow-x-auto calm-scroll">
+          <button
+            type="button"
+            data-chip="Sweet Floral Picks"
+            class="chat-chip shrink-0 px-3 py-1.5 rounded-full bg-blush-mist hover:bg-[#F5DCE6] border border-[#E9CFD9] text-[11px] font-semibold text-slate-plum whitespace-nowrap"
+          >
+            Sweet Floral Picks
+          </button>
+          <button
+            type="button"
+            data-chip="Layering & Longevity"
+            class="chat-chip shrink-0 px-3 py-1.5 rounded-full bg-ice-blue hover:bg-[#E0ECF7] border border-[#D3E2F0] text-[11px] font-semibold text-slate-plum whitespace-nowrap"
+          >
+            Layering &amp; Longevity
+          </button>
+          <button
+            type="button"
+            data-chip="Order & Shipping"
+            class="chat-chip shrink-0 px-3 py-1.5 rounded-full bg-periwinkle-dew hover:bg-[#DFE6F6] border border-[#D6DEF0] text-[11px] font-semibold text-slate-plum whitespace-nowrap"
+          >
+            Order &amp; Shipping
+          </button>
+          <button
+            type="button"
+            data-chip="Official Email"
+            class="chat-chip shrink-0 px-3 py-1.5 rounded-full bg-blush-mist hover:bg-[#F5DCE6] border border-[#E9CFD9] text-[11px] font-semibold text-slate-plum whitespace-nowrap"
+          >
+            Official Email
+          </button>
+        </div>
+
+        <!-- Input Form -->
+        <form id="chatbot-form" class="p-3 bg-white border-t border-[#ECE4EE] flex items-center gap-2">
+          <label for="chatbot-input" class="sr-only">Ask the Freshrances Scent Guide</label>
+          <input
+            type="text"
+            id="chatbot-input"
+            placeholder="Ask about notes, layering, or shipping..."
+            class="flex-1 min-h-[40px] px-3.5 rounded-full bg-morning-cloud border border-[#E4DCE6] text-xs sm:text-sm text-slate-plum focus:outline-none focus:border-rose-deep"
+          />
+          <button
+            type="submit"
+            aria-label="Send message"
+            class="min-h-[40px] min-w-[40px] rounded-full bg-rose-deep hover:bg-[#B86A84] text-white flex items-center justify-center transition-colors shrink-0"
+          >
+            <i class="ph ph-paper-plane-tilt text-base" aria-hidden="true"></i>
+          </button>
+        </form>
+      </div>
+
+      <!-- Floating Launcher Button -->
+      <button
+        type="button"
+        id="open-chatbot-btn"
+        aria-label="Open Freshrances Scent Guide Chatbot"
+        class="btn-silk min-h-[48px] px-4 sm:px-5 rounded-full bg-gradient-to-r from-rose-deep to-serene-blue text-white text-xs sm:text-sm font-semibold shadow-lg flex items-center gap-2"
+      >
+        <i class="ph ph-chat-circle-dots text-lg" aria-hidden="true"></i>
+        <span>Scent Guide</span>
+      </button>
+    </div>
+
+    <!-- =================================================================== -->
+    <!-- TOAST NOTIFICATION                                                  -->
+    <!-- =================================================================== -->
+    <div
+      id="toast-container"
+      aria-live="polite"
+      class="fixed bottom-5 left-5 z-50 flex flex-col gap-2 pointer-events-none max-w-xs sm:max-w-sm"
+    ></div>
+
+    <!-- =================================================================== -->
+    <!-- APPLICATION LOGIC (VANILLA JAVASCRIPT)                              -->
+    <!-- =================================================================== -->
+    <script>
+      (function () {
+        'use strict';
+
+        // ---------------------------------------------------------------------
+        // 1. CATALOG DATA (6 CATEGORIES x 3 PRODUCTS = 18 SWEET-FLORAL ITEMS)
+        // ---------------------------------------------------------------------
+        const CATEGORIES = ['All Blooms', 'Perfumes', 'Mists', 'Splash', 'Deodorants', 'Roll-Ons', 'Body Sprays'];
+
+        const MOOD_DETAILS = {
+          'Sweet Blossom': 'Juicy pink lychee, candied pear, sugar magnolia, and dewy white peony.',
+          'Calm Petal': 'Soft iris, cotton flower, pink lotus, and airy bluebell veil.',
+          'Dewy Refresh': 'Sweet neroli, rain-kissed jasmine, water lily, and sparkling mist.',
+          'Honeyed Bloom': 'Blossom honey, sweet freesia, apricot nectar, and soft vanilla cloud.',
+        };
+
+        const PRODUCTS = [
+          // PERFUMES (3)
+          {
+            id: 'peony-morning-cloud',
+            name: 'Peony Morning Cloud',
+            category: 'Perfumes',
+            mood: 'Sweet Blossom',
+            volume: '50 ml · Eau de Parfum',
+            price: 58.0,
+            rating: 4.9,
+            accent: 'rose',
+            motif: 'peony-pear',
+            shortDesc: 'Velvety white peony and candied pear wrapped in soft vanilla cloud.',
+            story:
+              'Inspired by quiet conservatory mornings when dew still clings to freshly cut white peonies. Opening with a gentle sparkle of candied pear and pink lychee, it settles into chilled rosewater and an airy, feather-soft vanilla cloud that stays close and calming all day.',
+            notes: {
+              top: 'Candied Pear, Pink Lychee',
+              heart: 'White Peony, Chilled Rosewater',
+              base: 'Soft Vanilla Cloud, Sheer Silk Musk',
+            },
+            tip: 'Mist twice onto warm pulse points after moisturizing; layer with Rosewater & Lychee Mist for a dreamy aura.',
+          },
+          {
+            id: 'bluebell-silk-veil',
+            name: 'Bluebell Silk Veil',
+            category: 'Perfumes',
+            mood: 'Calm Petal',
+            volume: '50 ml · Eau de Parfum',
+            price: 62.0,
+            rating: 4.8,
+            accent: 'blue',
+            motif: 'bluebell-iris',
+            shortDesc: 'Morning bluebell and soft iris folded into cool cotton blossom.',
+            story:
+              'Like opening bedroom windows to a pale blue sky after spring rain. Crisp apple blossom and morning bluebell float gently over powdery soft iris and clean cotton flower, creating a serene floral signature that never feels heavy.',
+            notes: {
+              top: 'Dewy Bergamot, Crisp Apple Blossom',
+              heart: 'Morning Bluebell, Soft Iris',
+              base: 'Cotton Blossom, Pale Amber Veil',
+            },
+            tip: 'Wear over Cotton Peony Balm Deodorant for a crisp, tranquil 8-hour signature.',
+          },
+          {
+            id: 'honeyed-neroli-atelier',
+            name: 'Honeyed Neroli Atelier',
+            category: 'Perfumes',
+            mood: 'Honeyed Bloom',
+            volume: '50 ml · Eau de Parfum',
+            price: 64.0,
+            rating: 5.0,
+            accent: 'rose-blue',
+            motif: 'honey-neroli',
+            shortDesc: 'Sweet neroli petals drizzled with delicate blossom honey and orchid.',
+            story:
+              'Sunlight filtered through glass apothecary jars. Sweet orange-blossom neroli and white peach melt into golden blossom honey and dewy jasmine, grounded by creamy vanilla orchid for a warm yet weightless sweetness.',
+            notes: {
+              top: 'Sweet Neroli, White Peach',
+              heart: 'Blossom Honey, Dewy Jasmine',
+              base: 'Vanilla Orchid, Cashmere Silk',
+            },
+            tip: 'Ideal for brunches and golden-hour strolls; dab Soft Iris or Blossom Honey Roll-On beneath for extra depth.',
+          },
+
+          // MISTS (3)
+          {
+            id: 'rosewater-lychee-mist',
+            name: 'Rosewater & Lychee Mist',
+            category: 'Mists',
+            mood: 'Sweet Blossom',
+            volume: '120 ml · Hair & Body Mist',
+            price: 28.0,
+            rating: 4.9,
+            accent: 'rose',
+            motif: 'lychee-rose',
+            shortDesc: 'Chilled pink lychee nectar and fresh rosewater in an ultra-fine mist.',
+            story:
+              'A refreshing cloud of crushed pink lychee and cool petal rosewater designed for hair lengths, bare shoulders, and sunlit linen scarves. Leaves a delicate, rosy-sweet trail with zero alcohol bite.',
+            notes: {
+              top: 'Pink Lychee, Frosted Berry',
+              heart: 'Fresh Rosewater, Pink Peony',
+              base: 'Whipped Sugar, Airy Musk',
+            },
+            tip: 'Spray onto a hairbrush before combing through dry ends for a gentle breeze of rosewater all afternoon.',
+          },
+          {
+            id: 'iris-sky-linen-mist',
+            name: 'Iris Sky Linen Mist',
+            category: 'Mists',
+            mood: 'Calm Petal',
+            volume: '120 ml · Fine Floral Mist',
+            price: 26.0,
+            rating: 4.8,
+            accent: 'blue',
+            motif: 'bluebell-iris',
+            shortDesc: 'Airy bluebell, soft iris, and steamed white tea for calm afternoons.',
+            story:
+              'Formulated to soothe busy mid-days with a whisper of white tea steam, raindrop accord, and powdery iris petals. Equally lovely on skin, cardigans, or freshly pressed bedding.',
+            notes: {
+              top: 'White Tea Steam, Raindrop Accord',
+              heart: 'Soft Iris, Bluebell Mist',
+              base: 'Clean Cotton, Soft Powder',
+            },
+            tip: 'Keep on your work desk for a calm midday reset across wrists and collar.',
+          },
+          {
+            id: 'jasmine-dew-veil-mist',
+            name: 'Jasmine Dew Veil Mist',
+            category: 'Mists',
+            mood: 'Dewy Refresh',
+            volume: '120 ml · Refreshing Mist',
+            price: 29.0,
+            rating: 4.9,
+            accent: 'blue-rose',
+            motif: 'jasmine-neroli',
+            shortDesc: 'Rain-kissed jasmine petals brightened with sweet clementine mist.',
+            story:
+              'Captures the crisp sweetness of white jasmine blossoms right after morning watering. Sweet clementine and green dew open into luminous jasmine and sweet neroli on a sheer bamboo cushion.',
+            notes: {
+              top: 'Sweet Clementine, Dewy Green Leaf',
+              heart: 'Dewy Jasmine, Sweet Neroli',
+              base: 'Sheer Bamboo, White Blossom',
+            },
+            tip: 'Pair with Dewy Jasmine Cloud Spray after yoga or warm-weather errands.',
+          },
+
+          // SPLASH (3)
+          {
+            id: 'candied-pear-petal-splash',
+            name: 'Candied Pear Petal Splash',
+            category: 'Splash',
+            mood: 'Sweet Blossom',
+            volume: '200 ml · Botanical Splash',
+            price: 24.0,
+            rating: 4.8,
+            accent: 'rose',
+            motif: 'peony-pear',
+            shortDesc: 'Crisp candied pear and apple blossom water for post-bath cooling.',
+            story:
+              'Pour generously into palms after a warm bath or shower. Juicy candied pear and mandarin peel cool the skin instantly while leaving behind a soft whisper of apple blossom and white peony.',
+            notes: {
+              top: 'Candied Pear, Mandarin Peel',
+              heart: 'Apple Blossom, White Peony',
+              base: 'Sugar Crystals, Soft Dew',
+            },
+            tip: 'Store in the refrigerator during summer months for an extra cooling post-shower botanical veil.',
+          },
+          {
+            id: 'morning-bluebell-cool-splash',
+            name: 'Morning Bluebell Cool Splash',
+            category: 'Splash',
+            mood: 'Dewy Refresh',
+            volume: '200 ml · Refreshing Splash',
+            price: 24.0,
+            rating: 4.7,
+            accent: 'blue',
+            motif: 'bluebell-iris',
+            shortDesc: 'Chilled rainwater, morning bluebell, and lily of the valley clarity.',
+            story:
+              'Pure refreshment bottled. Chilled rainwater and sweet Meyer lemon glide over morning bluebell and dainty lily of the valley, awakening tired skin with quiet, dewy clarity.',
+            notes: {
+              top: 'Chilled Rainwater, Sweet Lemon',
+              heart: 'Morning Bluebell, Lily of the Valley',
+              base: 'Sheer Iris, Clean Air',
+            },
+            tip: 'Splash over neck and arms before applying Bluebell Silk Veil Eau de Parfum.',
+          },
+          {
+            id: 'apricot-blossom-splash',
+            name: 'Apricot Blossom After-Bath Splash',
+            category: 'Splash',
+            mood: 'Honeyed Bloom',
+            volume: '200 ml · Silky Splash',
+            price: 25.0,
+            rating: 4.9,
+            accent: 'rose-blue',
+            motif: 'honey-neroli',
+            shortDesc: 'Velvety apricot nectar, honeyed freesia, and soft almond milk.',
+            story:
+              'Softly hydrating and gently sweet, this silky water pairs sun-ripened apricot nectar with honeyed yellow freesia and a soothing whisper of vanilla cloud and almond milk.',
+            notes: {
+              top: 'Apricot Nectar, Sweet Neroli',
+              heart: 'Honeyed Freesia, Jasmine Petal',
+              base: 'Vanilla Cloud, Soft Almond Milk',
+            },
+            tip: 'Pat onto damp skin right after towel-drying to seal in sweet floral softness.',
+          },
+
+          // DEODORANTS (3)
+          {
+            id: 'cotton-peony-balm-deo',
+            name: 'Cotton Peony Balm Deodorant',
+            category: 'Deodorants',
+            mood: 'Calm Petal',
+            volume: '50 g · Smooth Stick',
+            price: 19.0,
+            rating: 4.9,
+            accent: 'rose',
+            motif: 'peony-pear',
+            shortDesc: 'Aluminum-free silk balm scented with white peony and cotton flower.',
+            story:
+              'Glides on like a featherweight skincare cream without chalky residue. Delicate white peony, pear dew, and clean cotton flower keep underarms calm, dry, and softly fragrant from morning to night.',
+            notes: {
+              top: 'Sheer Aldehydes, Pear Dew',
+              heart: 'White Peony, Cotton Flower',
+              base: 'Soft Iris, Silky Rice Milk',
+            },
+            tip: 'Our cleanest base layer—pairs seamlessly beneath any Freshrances perfume or mist.',
+          },
+          {
+            id: 'sweet-neroli-silk-deo',
+            name: 'Sweet Neroli Silk Deodorant',
+            category: 'Deodorants',
+            mood: 'Dewy Refresh',
+            volume: '50 g · Smooth Stick',
+            price: 19.0,
+            rating: 4.8,
+            accent: 'blue',
+            motif: 'jasmine-neroli',
+            shortDesc: 'Soothing orange blossom, sweet neroli, and white tea freshness.',
+            story:
+              'Crafted for sensitive skin and active mornings, balancing sweet neroli and dewy jasmine with calming white tea. Keeps you feeling freshly showered through warm commutes.',
+            notes: {
+              top: 'Sweet Neroli, Bergamot Mist',
+              heart: 'Orange Blossom, Dewy Jasmine',
+              base: 'White Tea, Clean Musk',
+            },
+            tip: 'Follow with Jasmine Dew Veil Mist for effortless daytime freshness.',
+          },
+          {
+            id: 'vanilla-blossom-cream-deo',
+            name: 'Vanilla Blossom Cream Deodorant',
+            category: 'Deodorants',
+            mood: 'Honeyed Bloom',
+            volume: '50 g · Smooth Stick',
+            price: 20.0,
+            rating: 4.9,
+            accent: 'rose-blue',
+            motif: 'honey-neroli',
+            shortDesc: 'Almond blossom, magnolia, and soft vanilla cloud comfort.',
+            story:
+              'Warmly comforting yet airy and clean. Pink lychee and almond blossom blend into creamy magnolia and oat milk, keeping skin serene and delicately sweet.',
+            notes: {
+              top: 'Pink Lychee, Almond Blossom',
+              heart: 'Blossom Honey, Magnolia',
+              base: 'Soft Vanilla Cloud, Oat Milk',
+            },
+            tip: 'Lovely on its own for cozy days or layered under Honeyed Neroli Atelier.',
+          },
+
+          // ROLL-ONS (3)
+          {
+            id: 'pink-lychee-nectar-rollon',
+            name: 'Pink Lychee Nectar Roll-On',
+            category: 'Roll-Ons',
+            mood: 'Sweet Blossom',
+            volume: '15 ml · Concentrated Oil',
+            price: 22.0,
+            rating: 4.9,
+            accent: 'rose',
+            motif: 'lychee-rose',
+            shortDesc: 'Pocket-sized botanical oil of pink lychee, rosewater, and honey.',
+            story:
+              'Silky jojoba-infused fragrance oil built for quiet pulse-point rituals anywhere. Opens with juicy pink lychee and candied pear before melting into velvet rosewater and warm blossom honey.',
+            notes: {
+              top: 'Pink Lychee, Candied Pear',
+              heart: 'Velvet Rosewater, Sweet Pea',
+              base: 'Blossom Honey, Warm Vanilla',
+            },
+            tip: 'Roll gently onto inner wrists and behind ears before stepping into evening air.',
+          },
+          {
+            id: 'soft-iris-pulse-rollon',
+            name: 'Soft Iris Pulse Roll-On',
+            category: 'Roll-Ons',
+            mood: 'Calm Petal',
+            volume: '15 ml · Concentrated Oil',
+            price: 23.0,
+            rating: 4.8,
+            accent: 'blue',
+            motif: 'bluebell-iris',
+            shortDesc: 'Tranquil iris butter, morning bluebell, and vanilla cloud oil.',
+            story:
+              'A pocket sanctuary for flights, study hours, and quiet evenings. De-stresses the senses with violet leaf dew, velvety iris, and soft bluebell resting on warm vanilla cloud.',
+            notes: {
+              top: 'Violet Leaf, Morning Dew',
+              heart: 'Soft Iris, Morning Bluebell',
+              base: 'White Suede, Vanilla Cloud',
+            },
+            tip: 'Layer beneath Bluebell Silk Veil Eau de Parfum to extend wear past 9 hours.',
+          },
+          {
+            id: 'blossom-honey-freesia-rollon',
+            name: 'Blossom Honey & Freesia Roll-On',
+            category: 'Roll-Ons',
+            mood: 'Honeyed Bloom',
+            volume: '15 ml · Concentrated Oil',
+            price: 24.0,
+            rating: 5.0,
+            accent: 'rose-blue',
+            motif: 'honey-neroli',
+            shortDesc: 'Golden pear, sweet freesia, and creamy blossom honey oil.',
+            story:
+              'Radiant and gently sweet without ever turning cloying. Sunny yellow freesia and golden pear melt smoothly into skin with pure blossom honey and vanilla orchid.',
+            notes: {
+              top: 'Golden Pear, Sweet Neroli',
+              heart: 'Yellow Freesia, Blossom Honey',
+              base: 'Vanilla Orchid, Soft Amber',
+            },
+            tip: 'Warm a single dot on your collarbones before misting Apricot Blossom Splash.',
+          },
+
+          // BODY SPRAYS (3)
+          {
+            id: 'dewy-jasmine-cloud-spray',
+            name: 'Dewy Jasmine Cloud Spray',
+            category: 'Body Sprays',
+            mood: 'Dewy Refresh',
+            volume: '150 ml · All-Over Spray',
+            price: 27.0,
+            rating: 4.8,
+            accent: 'blue',
+            motif: 'jasmine-neroli',
+            shortDesc: 'Sparkling citrus, water lily, and dewy jasmine in an airy spray.',
+            story:
+              'A crisp, uplifting all-over spray that feels like cool morning breeze through white curtains. Sparkling citrus and rain petal drift effortlessly into dewy jasmine and water lily.',
+            notes: {
+              top: 'Sparkling Citrus, Rain Petal',
+              heart: 'Dewy Jasmine, Water Lily',
+              base: 'Airy Musk, Soft Cedar Breeze',
+            },
+            tip: 'Mist generously across shoulders and sundresses for breezy daytime radiance.',
+          },
+          {
+            id: 'sugar-magnolia-breeze-spray',
+            name: 'Sugar Magnolia Breeze Spray',
+            category: 'Body Sprays',
+            mood: 'Sweet Blossom',
+            volume: '150 ml · All-Over Spray',
+            price: 27.0,
+            rating: 4.9,
+            accent: 'rose',
+            motif: 'peony-pear',
+            shortDesc: 'Creamy sugar magnolia, candied pear, and spun vanilla cloud.',
+            story:
+              'Playfully sweet yet calmingly sheer. Luscious sugar magnolia petals and white peony bloom over bright candied pear, leaving an irresistible, joyful trail.',
+            notes: {
+              top: 'Candied Pear, Pink Grapefruit',
+              heart: 'Sugar Magnolia, White Peony',
+              base: 'Spun Sugar, Vanilla Cloud',
+            },
+            tip: 'Spritz after Candied Pear Petal Splash for a bright, joyful floral duo.',
+          },
+          {
+            id: 'bluebell-rosewater-daily-spray',
+            name: 'Bluebell & Rosewater Daily Spray',
+            category: 'Body Sprays',
+            mood: 'Calm Petal',
+            volume: '150 ml · All-Over Spray',
+            price: 26.0,
+            rating: 4.8,
+            accent: 'blue-rose',
+            motif: 'lychee-rose',
+            shortDesc: 'Chilled rosewater, morning bluebell, and pink lotus petals.',
+            story:
+              'Our signature pink-and-blue harmony in a daily spray. Cooling rosewater and mint dew swirl gently with morning bluebell and pink lotus over crisp clean linen.',
+            notes: {
+              top: 'Chilled Rosewater, Mint Dew',
+              heart: 'Morning Bluebell, Pink Lotus',
+              base: 'Clean Linen, Soft Iris',
+            },
+            tip: 'An effortless everyday staple—refresh anytime without overwhelming the room.',
+          },
+        ];
+
+        const PYRAMID_LAYERS = {
+          top: {
+            kicker: 'First Impression · 0–30 Minutes',
+            title: 'Top Notes — Bright Morning Sparkle',
+            desc: 'The moment a Freshrances mist or perfume touches cool skin, volatile fruit-blossom molecules greet you with a calm, uplifting sparkle—never sharp or harsh.',
+            notes: 'Candied Pear · Pink Lychee · Sweet Neroli · Chilled Rosewater · Dewy Bergamot',
+          },
+          heart: {
+            kicker: 'The Floral Core · 1–4 Hours',
+            title: 'Heart Notes — Sweet Petal Bouquet',
+            desc: 'As the opening dew settles, the true personality of the fragrance blooms: velvety white petals and soft nectar accords that wrap you in peaceful elegance.',
+            notes: 'White Peony · Morning Bluebell · Soft Iris · Dewy Jasmine · Sugar Magnolia · Freesia',
+          },
+          base: {
+            kicker: 'Lingering Trail · 6+ Hours',
+            title: 'Base Notes — Airy Vanilla & Clean Silk',
+            desc: 'Instead of heavy woods or smoky resins, Freshrances anchors every scent with featherlight clouds of vanilla orchid, blossom honey, and clean cotton silk.',
+            notes: 'Soft Vanilla Cloud · Blossom Honey · Cotton Blossom · Sheer Silk Musk · Oat Milk',
+          },
+        };
+
+        const DEFAULT_REVIEWS = [
+          {
+            id: 'rev-1',
+            productId: 'peony-morning-cloud',
+            productName: 'Peony Morning Cloud',
+            rating: 5,
+            name: 'Hannah Lindqvist',
+            city: 'Boston',
+            headline: 'Finally a sweet floral that feels genuinely calming',
+            text: 'So many floral perfumes give me a headache, but Peony Morning Cloud smells like chilled pear and fresh white peonies in cool morning air. Lasts my entire workday.',
+            date: 'Nov 12, 2026',
+          },
+          {
+            id: 'rev-2',
+            productId: 'bluebell-rosewater-daily-spray',
+            productName: 'Bluebell & Rosewater Daily Spray',
+            rating: 5,
+            name: 'Maya Patel',
+            city: 'Austin',
+            headline: 'My everyday post-gym and desk refresh',
+            text: 'Clean, slightly sweet, and so refreshing. Pairing the Bluebell Daily Spray with the Cotton Peony Deodorant has become my favorite morning routine.',
+            date: 'Nov 08, 2026',
+          },
+          {
+            id: 'rev-3',
+            productId: 'pink-lychee-nectar-rollon',
+            productName: 'Pink Lychee Nectar Roll-On',
+            rating: 5,
+            name: 'Chloe Moreau',
+            city: 'Chicago',
+            headline: 'Dreamy pocket oil for travel days',
+            text: 'The lychee and rosewater opening is joyful without being sugary, and the honeyed vanilla dry-down stays cozy on my wrists for hours.',
+            date: 'Nov 02, 2026',
+          },
+        ];
+
+        // ---------------------------------------------------------------------
+        // 2. LOCALSTORAGE STATE & PERSISTENCE
+        // ---------------------------------------------------------------------
+        const STORAGE_KEYS = {
+          BAG: 'freshrances_scent_bag_v1',
+          PROFILE: 'freshrances_profile_v1',
+          ORDERS: 'freshrances_orders_v1',
+          REVIEWS: 'freshrances_reviews_v1',
+        };
+
+        function readJSON(key, fallback) {
+          try {
+            const raw = localStorage.getItem(key);
+            return raw ? JSON.parse(raw) : fallback;
+          } catch (e) {
+            return fallback;
+          }
+        }
+
+        function writeJSON(key, value) {
+          try {
+            localStorage.setItem(key, JSON.stringify(value));
+          } catch (e) {
+            // Ignore storage quota errors gracefully
+          }
+        }
+
+        const state = {
+          activeCategory: 'All Blooms',
+          activeMood: null,
+          searchQuery: '',
+          sortBy: 'featured',
+          activePyramidLayer: 'top',
+          bag: readJSON(STORAGE_KEYS.BAG, []),
+          profile: readJSON(STORAGE_KEYS.PROFILE, null),
+          orders: readJSON(STORAGE_KEYS.ORDERS, []),
+          reviews: readJSON(STORAGE_KEYS.REVIEWS, DEFAULT_REVIEWS),
+          chatHistory: [],
+          chatOpenedOnce: false,
+        };
+
+        // ---------------------------------------------------------------------
+        // 3. STUDIO SVG VESSEL ARTWORK GENERATOR (6 FORMATS + SCENT MOTIFS)
+        // ---------------------------------------------------------------------
+        function getPaletteForAccent(accent) {
+          if (accent === 'blue') {
+            return {
+              stageBg1: '#EEF5FB',
+              stageBg2: '#EBF0FA',
+              liquid1: '#C5DDF2',
+              liquid2: '#7EA8C9',
+              cap1: '#E5EFF8',
+              cap2: '#B5CDE4',
+              ribbon: '#7EA8C9',
+              petal1: '#BBD6EC',
+              petal2: '#7C96C8',
+              stroke: '#B9CCE0',
+            };
+          }
+          if (accent === 'rose-blue' || accent === 'blue-rose') {
+            return {
+              stageBg1: '#FBEFF4',
+              stageBg2: '#EEF5FB',
+              liquid1: '#F2C4D4',
+              liquid2: '#9CBFE0',
+              cap1: '#F8E6EE',
+              cap2: '#D8E7F5',
+              ribbon: '#7C96C8',
+              petal1: '#F2C8D7',
+              petal2: '#9AC0DF',
+              stroke: '#D8CAD9',
+            };
+          }
+          return {
+            stageBg1: '#FBEFF4',
+            stageBg2: '#F6F3FA',
+            liquid1: '#F4CAD8',
+            liquid2: '#E49AB0',
+            cap1: '#FDF3F7',
+            cap2: '#ECC4D2',
+            ribbon: '#E49AB0',
+            petal1: '#F6D3DF',
+            petal2: '#E49AB0',
+            stroke: '#DFC7D2',
+          };
+        }
+
+        function renderScentMotifsSVG(motif, pal) {
+          if (motif === 'peony-pear') {
+            return `
+              <g opacity="0.85">
+                <!-- Delicate Peony Blossom Left -->
+                <path d="M44 128 C34 118, 30 105, 42 100 C51 106, 50 118, 44 128Z" fill="${pal.petal1}" />
+                <path d="M44 128 C54 119, 60 108, 52 101 C43 107, 42 118, 44 128Z" fill="${pal.petal2}" />
+                <circle cx="45" cy="120" r="2.2" fill="#FCFDFF" />
+                <!-- Candied Pear Silhouette Right -->
+                <path d="M188 128 C188 138, 174 142, 174 130 C174 122, 179 116, 181 110 C183 116, 188 120, 188 128Z" fill="#DFECCE" stroke="#B7CE9E" stroke-width="0.9" />
+                <path d="M181 109 Q186 102 190 105" stroke="#8FA978" stroke-width="1.2" fill="none" stroke-linecap="round" />
+                <ellipse cx="168" cy="54" rx="7" ry="4" transform="rotate(-20 168 54)" fill="${pal.petal1}" />
+              </g>
+            `;
+          }
+          if (motif === 'bluebell-iris') {
+            return `
+              <g opacity="0.88">
+                <!-- Morning Bluebells Left -->
+                <path d="M44 68 Q40 82 35 88 Q43 87 48 90 Q52 82 44 68Z" fill="${pal.petal2}" />
+                <path d="M53 84 Q49 97 44 103 Q52 102 57 104 Q61 96 53 84Z" fill="${pal.petal1}" />
+                <path d="M43 58 Q50 66 53 84" stroke="#7EA8C9" stroke-width="1.1" fill="none" />
+                <!-- Soft Iris Petal Right -->
+                <path d="M182 118 C172 110, 176 96, 184 102 C192 96, 196 110, 182 118Z" fill="${pal.petal1}" />
+                <circle cx="172" cy="144" r="3.5" fill="${pal.petal2}" opacity="0.55" />
+              </g>
+            `;
+          }
+          if (motif === 'lychee-rose') {
+            return `
+              <g opacity="0.86">
+                <!-- Pink Lychee Sphere Left -->
+                <circle cx="44" cy="128" r="10" fill="#F2B3C6" stroke="#D888A1" stroke-width="1" />
+                <circle cx="41" cy="125" r="2.2" fill="#FFFFFF" opacity="0.65" />
+                <path d="M44 118 Q48 112 53 114" stroke="#9BB694" stroke-width="1.2" fill="none" />
+                <!-- Rosewater Petals Right -->
+                <ellipse cx="182" cy="70" rx="9" ry="5.5" transform="rotate(25 182 70)" fill="${pal.petal1}" />
+                <ellipse cx="178" cy="138" rx="8" ry="4.8" transform="rotate(-18 178 138)" fill="${pal.petal2}" />
+              </g>
+            `;
+          }
+          if (motif === 'jasmine-neroli') {
+            return `
+              <g opacity="0.88">
+                <!-- Star Jasmine Blossom Left -->
+                <g transform="translate(44, 114)">
+                  <ellipse cx="0" cy="-7" rx="3" ry="6.5" fill="#FFFFFF" stroke="#D7E2EE" stroke-width="0.8" />
+                  <ellipse cx="6.5" cy="-2" rx="6.5" ry="3" fill="#FFFFFF" stroke="#D7E2EE" stroke-width="0.8" />
+                  <ellipse cx="-6.5" cy="-2" rx="6.5" ry="3" fill="#FFFFFF" stroke="#D7E2EE" stroke-width="0.8" />
+                  <ellipse cx="4" cy="5.5" rx="3" ry="6" transform="rotate(35 4 5.5)" fill="#FFFFFF" stroke="#D7E2EE" stroke-width="0.8" />
+                  <ellipse cx="-4" cy="5.5" rx="3" ry="6" transform="rotate(-35 -4 5.5)" fill="#FFFFFF" stroke="#D7E2EE" stroke-width="0.8" />
+                  <circle cx="0" cy="0" r="2.3" fill="#F2C8D7" />
+                </g>
+                <!-- Dew Droplets Right -->
+                <path d="M180 68 C184 74, 185 80, 180 82 C175 80, 176 74, 180 68Z" fill="#BBD8F0" />
+                <ellipse cx="176" cy="138" rx="8" ry="4.5" transform="rotate(-22 176 138)" fill="${pal.petal1}" />
+              </g>
+            `;
+          }
+          // honey-neroli
+          return `
+            <g opacity="0.88">
+              <!-- Blossom Honey Droplet Left -->
+              <path d="M45 110 C51 119, 53 128, 45 131 C37 128, 39 119, 45 110Z" fill="#F6DCAA" stroke="#DFB87A" stroke-width="0.9" />
+              <circle cx="43" cy="123" r="1.8" fill="#FFFFFF" opacity="0.7" />
+              <!-- Sweet Neroli Blossom Right -->
+              <circle cx="180" cy="76" r="6" fill="${pal.petal1}" />
+              <circle cx="187" cy="82" r="5.5" fill="${pal.petal2}" />
+              <circle cx="177" cy="85" r="5" fill="#FFFFFF" />
+              <circle cx="181" cy="81" r="2.4" fill="#F2C87A" />
+              <ellipse cx="176" cy="140" rx="8" ry="4.5" transform="rotate(20 176 140)" fill="${pal.petal1}" />
+            </g>
+          `;
+        }
+
+        function createVesselSVG(product, uidPrefix) {
+          const pal = getPaletteForAccent(product.accent);
+          const uid = `${uidPrefix}-${product.id}`;
+          const motifs = renderScentMotifsSVG(product.motif, pal);
+          let vesselShape = '';
+
+          if (product.category === 'Perfumes') {
+            vesselShape = `
+              <!-- Faceted Crystal Perfume Flacon -->
+              <rect x="94" y="34" width="32" height="24" rx="6" fill="url(#cap-${uid})" stroke="${pal.stroke}" stroke-width="1.2" />
+              <rect x="99" y="58" width="22" height="8" rx="2" fill="#E9DEE8" stroke="${pal.ribbon}" stroke-width="0.9" />
+              <path d="M99 62 Q86 64 82 72 Q91 69 99 65 Z" fill="${pal.ribbon}" opacity="0.85" />
+              <path d="M121 62 Q134 64 138 72 Q129 69 121 65 Z" fill="${pal.petal2}" opacity="0.75" />
+
+              <rect x="68" y="66" width="84" height="104" rx="18" fill="#FFFFFF" fill-opacity="0.72" stroke="${pal.stroke}" stroke-width="1.5" />
+              <rect x="74" y="72" width="72" height="92" rx="13" fill="none" stroke="#FFFFFF" stroke-width="1.2" />
+              <path d="M76 96 Q94 92 110 96 Q126 100 144 95 L144 156 C144 161 139 164 134 164 L86 164 C81 164 76 161 76 156 Z" fill="url(#liq-${uid})" />
+              <rect x="82" y="79" width="5" height="78" rx="2.5" fill="#FFFFFF" opacity="0.55" />
+              <rect x="85" y="102" width="50" height="40" rx="6" fill="#FCFDFF" fill-opacity="0.94" stroke="${pal.stroke}" stroke-width="1" />
+              <text x="110" y="120" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="10" font-weight="600" fill="#2B2D3D">Freshrances</text>
+              <line x1="94" y1="125" x2="126" y2="125" stroke="${pal.ribbon}" stroke-width="0.9" />
+              <text x="110" y="135" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="5.5" letter-spacing="1" fill="#5D6178">PARFUM</text>
+            `;
+          } else if (product.category === 'Mists') {
+            vesselShape = `
+              <!-- Slender Frosted Mist Atomizer -->
+              <rect x="103" y="28" width="14" height="16" rx="3" fill="url(#cap-${uid})" stroke="${pal.stroke}" stroke-width="1.1" />
+              <circle cx="113" cy="35" r="2" fill="#5D6178" opacity="0.7" />
+              <rect x="96" y="44" width="28" height="10" rx="3" fill="#E8DFE9" stroke="${pal.stroke}" stroke-width="1" />
+              <rect x="84" y="54" width="52" height="116" rx="16" fill="#FFFFFF" fill-opacity="0.75" stroke="${pal.stroke}" stroke-width="1.4" />
+              <rect x="89" y="72" width="42" height="92" rx="11" fill="url(#liq-${uid})" opacity="0.9" />
+              <rect x="93" y="62" width="4.5" height="98" rx="2" fill="#FFFFFF" opacity="0.55" />
+              <rect x="91" y="95" width="38" height="44" rx="6" fill="#FCFDFF" fill-opacity="0.93" stroke="${pal.stroke}" stroke-width="0.9" />
+              <text x="110" y="114" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="9.2" font-weight="600" fill="#2B2D3D">Freshrances</text>
+              <line x1="97" y1="119" x2="123" y2="119" stroke="${pal.ribbon}" stroke-width="0.8" />
+              <text x="110" y="129" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="5.4" letter-spacing="1" fill="#5D6178">FINE MIST</text>
+            `;
+          } else if (product.category === 'Splash') {
+            vesselShape = `
+              <!-- Curved Apothecary Splash Bottle -->
+              <rect x="99" y="28" width="22" height="18" rx="5" fill="url(#cap-${uid})" stroke="${pal.stroke}" stroke-width="1.1" />
+              <rect x="97" y="46" width="26" height="8" rx="3" fill="${pal.ribbon}" opacity="0.8" />
+              <path d="M99 54 C99 68, 72 78, 72 114 C72 152, 82 170, 110 170 C138 170, 148 152, 148 114 C148 78, 121 68, 121 54 Z" fill="#FFFFFF" fill-opacity="0.72" stroke="${pal.stroke}" stroke-width="1.5" />
+              <path d="M77 104 Q110 98 143 104 C143 144, 134 164, 110 164 C86 164, 77 144, 77 104 Z" fill="url(#liq-${uid})" opacity="0.92" />
+              <path d="M84 94 Q80 120 88 150" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.52" fill="none" />
+              <rect x="86" y="108" width="48" height="36" rx="8" fill="#FCFDFF" fill-opacity="0.94" stroke="${pal.stroke}" stroke-width="0.9" />
+              <text x="110" y="124" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="9.5" font-weight="600" fill="#2B2D3D">Freshrances</text>
+              <text x="110" y="135" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="5.4" letter-spacing="1" fill="#5D6178">BOTANICAL SPLASH</text>
+            `;
+          } else if (product.category === 'Deodorants') {
+            vesselShape = `
+              <!-- Rounded Pastel Balm Deodorant Stick -->
+              <path d="M82 68 C82 42, 138 42, 138 68 L138 76 L82 76 Z" fill="url(#cap-${uid})" stroke="${pal.stroke}" stroke-width="1.3" />
+              <rect x="78" y="76" width="64" height="90" rx="18" fill="url(#liq-${uid})" stroke="${pal.stroke}" stroke-width="1.4" />
+              <rect x="85" y="83" width="5" height="74" rx="2.5" fill="#FFFFFF" opacity="0.45" />
+              <rect x="82" y="156" width="56" height="14" rx="7" fill="#FCFDFF" stroke="${pal.stroke}" stroke-width="1.1" />
+              <rect x="86" y="96" width="48" height="44" rx="10" fill="#FCFDFF" fill-opacity="0.94" stroke="${pal.stroke}" stroke-width="0.9" />
+              <text x="110" y="116" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="9.5" font-weight="600" fill="#2B2D3D">Freshrances</text>
+              <line x1="95" y1="121" x2="125" y2="121" stroke="${pal.ribbon}" stroke-width="0.8" />
+              <text x="110" y="131" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="5.3" letter-spacing="0.9" fill="#5D6178">SILK BALM</text>
+            `;
+          } else if (product.category === 'Roll-Ons') {
+            vesselShape = `
+              <!-- Slim Travel Glass Roll-On Vial -->
+              <rect x="97" y="28" width="26" height="26" rx="6" fill="url(#cap-${uid})" stroke="${pal.stroke}" stroke-width="1.2" />
+              <rect x="95" y="54" width="30" height="116" rx="11" fill="#FFFFFF" fill-opacity="0.78" stroke="${pal.stroke}" stroke-width="1.4" />
+              <rect x="99" y="64" width="22" height="101" rx="8" fill="url(#liq-${uid})" opacity="0.95" />
+              <rect x="102" y="62" width="3.5" height="98" rx="1.8" fill="#FFFFFF" opacity="0.58" />
+              <rect x="97" y="88" width="26" height="54" rx="4" fill="#FCFDFF" fill-opacity="0.95" stroke="${pal.stroke}" stroke-width="0.9" />
+              <text x="110" y="111" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="8.2" font-weight="600" fill="#2B2D3D">Freshrances</text>
+              <text x="110" y="124" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="5" letter-spacing="0.8" fill="#5D6178">ROLL-ON</text>
+            `;
+          } else {
+            // Body Sprays
+            vesselShape = `
+              <!-- Contoured Satin Body Spray Canister -->
+              <path d="M96 34 C96 28, 124 28, 124 34 L128 48 L92 48 Z" fill="url(#cap-${uid})" stroke="${pal.stroke}" stroke-width="1.2" />
+              <rect x="106" y="34" width="8" height="6" rx="2" fill="#5D6178" opacity="0.5" />
+              <path d="M92 48 L128 48 L136 64 L136 158 C136 165, 130 170, 122 170 L98 170 C90 170, 84 165, 84 158 L84 64 Z" fill="url(#liq-${uid})" stroke="${pal.stroke}" stroke-width="1.4" />
+              <rect x="90" y="68" width="5" height="88" rx="2.5" fill="#FFFFFF" opacity="0.48" />
+              <rect x="89" y="86" width="42" height="54" rx="8" fill="#FCFDFF" fill-opacity="0.94" stroke="${pal.stroke}" stroke-width="0.9" />
+              <text x="110" y="109" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="9" font-weight="600" fill="#2B2D3D">Freshrances</text>
+              <line x1="96" y1="115" x2="124" y2="115" stroke="${pal.ribbon}" stroke-width="0.8" />
+              <text x="110" y="126" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="5.2" letter-spacing="0.9" fill="#5D6178">BODY SPRAY</text>
+            `;
+          }
+
+          return `
+            <svg viewBox="0 0 220 190" class="vessel-art w-full h-full max-h-[210px] select-none" role="img" aria-label="${product.name} ${product.category} illustration">
+              <defs>
+                <linearGradient id="bg-${uid}" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="${pal.stageBg1}" />
+                  <stop offset="100%" stop-color="${pal.stageBg2}" />
+                </linearGradient>
+                <linearGradient id="liq-${uid}" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="${pal.liquid1}" />
+                  <stop offset="100%" stop-color="${pal.liquid2}" />
+                </linearGradient>
+                <linearGradient id="cap-${uid}" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="${pal.cap1}" />
+                  <stop offset="100%" stop-color="${pal.cap2}" />
+                </linearGradient>
+                <radialGradient id="ped-${uid}" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#8F829B" stop-opacity="0.28" />
+                  <stop offset="100%" stop-color="#8F829B" stop-opacity="0" />
+                </radialGradient>
+              </defs>
+              <!-- Soft Vanity Backdrop Glow -->
+              <circle cx="110" cy="95" r="76" fill="#FFFFFF" opacity="0.55" />
+              <!-- Pedestal Shadow -->
+              <ellipse cx="110" cy="174" rx="54" ry="8" fill="url(#ped-${uid})" />
+              ${motifs}
+              ${vesselShape}
+            </svg>
+          `;
+        }
+
+        // ---------------------------------------------------------------------
+        // 4. DOM REFERENCES
+        // ---------------------------------------------------------------------
+        const els = {
+          topStrip: document.getElementById('top-announcement-strip'),
+          dismissTopStrip: document.getElementById('dismiss-top-strip'),
+          scrollRibbon: document.getElementById('scroll-progress-ribbon'),
+          headerSearchWrap: document.getElementById('header-search-wrap'),
+          headerSearchToggle: document.getElementById('header-search-toggle'),
+          headerSearchInput: document.getElementById('header-search-input'),
+          headerSearchClear: document.getElementById('header-search-clear'),
+          mobileMenuToggle: document.getElementById('mobile-menu-toggle'),
+          mobileNavPanel: document.getElementById('mobile-nav-panel'),
+          catalogSearchInput: document.getElementById('catalog-search-input'),
+          catalogSortSelect: document.getElementById('catalog-sort-select'),
+          categoryTabs: document.getElementById('category-tabs'),
+          activeMoodBanner: document.getElementById('active-mood-banner'),
+          activeMoodName: document.getElementById('active-mood-name'),
+          activeMoodDesc: document.getElementById('active-mood-desc'),
+          resetMoodBtn: document.getElementById('reset-mood-btn'),
+          catalogCountLabel: document.getElementById('catalog-count-label'),
+          clearAllFiltersBtn: document.getElementById('clear-all-filters-btn'),
+          productGrid: document.getElementById('product-grid'),
+          catalogEmptyState: document.getElementById('catalog-empty-state'),
+          emptyResetBtn: document.getElementById('empty-reset-btn'),
+
+          // Notes & Story Modal
+          notesModalBackdrop: document.getElementById('notes-modal-backdrop'),
+          closeNotesModal: document.getElementById('close-notes-modal'),
+          notesModalBody: document.getElementById('notes-modal-body'),
+
+          // Fragrance Pyramid
+          pyramidStageKicker: document.getElementById('pyramid-stage-kicker'),
+          pyramidStageTitle: document.getElementById('pyramid-stage-title'),
+          pyramidStageDesc: document.getElementById('pyramid-stage-desc'),
+          pyramidStageNotes: document.getElementById('pyramid-stage-notes'),
+
+          // Bag Drawer
+          openBagBtn: document.getElementById('open-bag-btn'),
+          closeBagBtn: document.getElementById('close-bag-btn'),
+          bagDrawerBackdrop: document.getElementById('bag-drawer-backdrop'),
+          headerBagCount: document.getElementById('header-bag-count'),
+          bagItemCountSub: document.getElementById('bag-item-count-sub'),
+          bagProgressText: document.getElementById('bag-progress-text'),
+          bagProgressFill: document.getElementById('bag-progress-fill'),
+          bagItemsContainer: document.getElementById('bag-items-container'),
+          bagSubtotal: document.getElementById('bag-subtotal'),
+          bagShipping: document.getElementById('bag-shipping'),
+          bagTrioRow: document.getElementById('bag-trio-row'),
+          bagTotal: document.getElementById('bag-total'),
+          proceedCheckoutBtn: document.getElementById('proceed-checkout-btn'),
+
+          // Checkout Modal
+          checkoutModalBackdrop: document.getElementById('checkout-modal-backdrop'),
+          closeCheckoutModal: document.getElementById('close-checkout-modal'),
+          checkoutFormView: document.getElementById('checkout-form-view'),
+          checkoutReceiptView: document.getElementById('checkout-receipt-view'),
+          checkoutAutofillBar: document.getElementById('checkout-autofill-bar'),
+          checkoutSavedName: document.getElementById('checkout-saved-name'),
+          checkoutAutofillBtn: document.getElementById('checkout-autofill-btn'),
+          checkoutForm: document.getElementById('checkout-form'),
+          checkoutName: document.getElementById('checkout-name'),
+          checkoutPhone: document.getElementById('checkout-phone'),
+          checkoutEmail: document.getElementById('checkout-email'),
+          checkoutCity: document.getElementById('checkout-city'),
+          checkoutAddress: document.getElementById('checkout-address'),
+          checkoutSaveProfile: document.getElementById('checkout-save-profile'),
+          cardReferenceWrap: document.getElementById('card-reference-wrap'),
+          checkoutSummaryItems: document.getElementById('checkout-summary-items'),
+          checkoutSummaryTotal: document.getElementById('checkout-summary-total'),
+          receiptOrderId: document.getElementById('receipt-order-id'),
+          receiptDetailsBox: document.getElementById('receipt-details-box'),
+          receiptViewProfileBtn: document.getElementById('receipt-view-profile-btn'),
+          receiptContinueBtn: document.getElementById('receipt-continue-btn'),
+
+          // Profile Modal
+          openProfileBtn: document.getElementById('open-profile-btn'),
+          profileBtnLabel: document.getElementById('profile-btn-label'),
+          profileSavedDot: document.getElementById('profile-saved-dot'),
+          profileModalBackdrop: document.getElementById('profile-modal-backdrop'),
+          closeProfileModal: document.getElementById('close-profile-modal'),
+          profileForm: document.getElementById('profile-form'),
+          profileName: document.getElementById('profile-name'),
+          profilePhone: document.getElementById('profile-phone'),
+          profileEmail: document.getElementById('profile-email'),
+          profileCity: document.getElementById('profile-city'),
+          profileAddress: document.getElementById('profile-address'),
+          clearProfileBtn: document.getElementById('clear-profile-btn'),
+          profileOrdersList: document.getElementById('profile-orders-list'),
+
+          // Reviews
+          reviewsList: document.getElementById('reviews-list'),
+          reviewsAvgDisplay: document.getElementById('reviews-avg-display'),
+          reviewsCountDisplay: document.getElementById('reviews-count-display'),
+          reviewForm: document.getElementById('review-form'),
+          reviewProduct: document.getElementById('review-product'),
+          reviewStarPicker: document.getElementById('review-star-picker'),
+          reviewRatingValue: document.getElementById('review-rating-value'),
+          reviewName: document.getElementById('review-name'),
+          reviewCity: document.getElementById('review-city'),
+          reviewHeadline: document.getElementById('review-headline'),
+          reviewText: document.getElementById('review-text'),
+
+          // Contact Desk
+          copyConciergeEmail: document.getElementById('copy-concierge-email'),
+          copyEmailLabel: document.getElementById('copy-email-label'),
+          contactForm: document.getElementById('contact-form'),
+          contactConfirmation: document.getElementById('contact-confirmation'),
+
+          // Chatbot
+          openChatbotBtn: document.getElementById('open-chatbot-btn'),
+          heroAskGuideBtn: document.getElementById('hero-ask-guide-btn'),
+          closeChatbotBtn: document.getElementById('close-chatbot-btn'),
+          chatbotPanel: document.getElementById('chatbot-panel'),
+          chatbotMessages: document.getElementById('chatbot-messages'),
+          chatbotForm: document.getElementById('chatbot-form'),
+          chatbotInput: document.getElementById('chatbot-input'),
+
+          toastContainer: document.getElementById('toast-container'),
+          footerYear: document.getElementById('footer-year'),
+        };
+
+        // ---------------------------------------------------------------------
+        // 5. UTILITY HELPERS & TOAST NOTIFICATIONS
+        // ---------------------------------------------------------------------
+        function escapeHTML(str) {
+          return String(str)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;');
+        }
+
+        function formatCurrency(amount) {
+          return '$' + Number(amount).toFixed(2);
+        }
+
+        function showToast(message, tone = 'rose') {
+          const toast = document.createElement('div');
+          const borderClass = tone === 'blue' ? 'border-[#C9DCEF]' : 'border-[#E9CED9]';
+          const iconClass = tone === 'blue' ? 'ph-info text-serene-blue' : 'ph-check-circle text-rose-deep';
+          toast.className = `pointer-events-auto flex items-center gap-2.5 px-4 py-3 rounded-2xl bg-white/95 backdrop-blur-md border ${borderClass} shadow-lg text-xs sm:text-sm font-medium text-slate-plum transition-all duration-200`;
+          toast.innerHTML = `<i class="ph ${iconClass} text-lg shrink-0" aria-hidden="true"></i><span>${escapeHTML(message)}</span>`;
+          els.toastContainer.appendChild(toast);
+          setTimeout(() => {
+            toast.style.opacity = '0';
+            toast.style.transform = 'translateY(6px)';
+            setTimeout(() => toast.remove(), 220);
+          }, 2800);
+        }
+
+        // ---------------------------------------------------------------------
+        // 6. SCROLL PROGRESS RIBBON & NAVIGATION
+        // ---------------------------------------------------------------------
+        function updateScrollRibbon() {
+          const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+          const progress = docHeight > 0 ? Math.min(1, Math.max(0, window.scrollY / docHeight)) : 0;
+          els.scrollRibbon.style.transform = `scaleX(${progress})`;
+        }
+
+        window.addEventListener('scroll', updateScrollRibbon, { passive: true });
+        updateScrollRibbon();
+
+        els.dismissTopStrip.addEventListener('click', () => {
+          els.topStrip.classList.add('hidden');
+        });
+
+        els.mobileMenuToggle.addEventListener('click', () => {
+          const isOpen = !els.mobileNavPanel.classList.contains('hidden');
+          els.mobileNavPanel.classList.toggle('hidden');
+          els.mobileMenuToggle.setAttribute('aria-expanded', String(!isOpen));
+        });
+
+        document.querySelectorAll('.mobile-nav-link').forEach((link) => {
+          link.addEventListener('click', () => {
+            els.mobileNavPanel.classList.add('hidden');
+            els.mobileMenuToggle.setAttribute('aria-expanded', 'false');
+          });
+        });
+
+        // Expandable Header Search synced with Catalog Search
+        els.headerSearchToggle.addEventListener('click', () => {
+          const isHidden = els.headerSearchWrap.classList.contains('hidden');
+          if (isHidden) {
+            els.headerSearchWrap.classList.remove('hidden');
+            els.headerSearchWrap.classList.add('flex');
+            els.headerSearchToggle.setAttribute('aria-expanded', 'true');
+            els.headerSearchInput.focus();
+          } else {
+            els.headerSearchWrap.classList.add('hidden');
+            els.headerSearchWrap.classList.remove('flex');
+            els.headerSearchToggle.setAttribute('aria-expanded', 'false');
+          }
+        });
+
+        function handleSearchChange(val) {
+          state.searchQuery = val;
+          if (els.headerSearchInput.value !== val) els.headerSearchInput.value = val;
+          if (els.catalogSearchInput.value !== val) els.catalogSearchInput.value = val;
+          els.headerSearchClear.classList.toggle('hidden', !val.trim());
+          renderCatalog();
+        }
+
+        els.headerSearchInput.addEventListener('input', (e) => {
+          handleSearchChange(e.target.value);
+          if (e.target.value.trim()) {
+            const col = document.getElementById('collections');
+            if (col && window.scrollY < col.offsetTop - 300) {
+              col.scrollIntoView({ behavior: 'smooth' });
+            }
+          }
+        });
+
+        els.headerSearchClear.addEventListener('click', () => {
+          handleSearchChange('');
+          els.headerSearchInput.focus();
+        });
+
+        els.catalogSearchInput.addEventListener('input', (e) => {
+          handleSearchChange(e.target.value);
+        });
+
+        els.catalogSortSelect.addEventListener('change', (e) => {
+          state.sortBy = e.target.value;
+          renderCatalog();
+        });
+
+        // ---------------------------------------------------------------------
+        // 7. CATEGORY TABS, MOODS & PRODUCT GRID RENDERING
+        // ---------------------------------------------------------------------
+        function renderCategoryTabs() {
+          els.categoryTabs.innerHTML = CATEGORIES.map((cat) => {
+            const count =
+              cat === 'All Blooms'
+                ? PRODUCTS.length
+                : PRODUCTS.filter((p) => p.category === cat).length;
+            const active = state.activeCategory === cat;
+            return `
+              <button
+                type="button"
+                role="tab"
+                aria-selected="${active}"
+                data-category="${cat}"
+                class="category-tab min-h-[40px] px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap shrink-0 border transition-colors ${
+                  active
+                    ? 'bg-rose-deep text-white border-rose-deep shadow-xs'
+                    : 'bg-white text-soft-slate border-[#E4DCE6] hover:border-rose-deep hover:text-slate-plum'
+                }"
+              >
+                ${cat} (${count})
+              </button>
+            `;
+          }).join('');
+
+          els.categoryTabs.querySelectorAll('.category-tab').forEach((btn) => {
+            btn.addEventListener('click', () => {
+              state.activeCategory = btn.getAttribute('data-category');
+              renderCategoryTabs();
+              renderCatalog();
+            });
+          });
+        }
+
+        function getFilteredProducts() {
+          const q = state.searchQuery.trim().toLowerCase();
+          let list = PRODUCTS.filter((p) => {
+            const matchCategory = state.activeCategory === 'All Blooms' || p.category === state.activeCategory;
+            const matchMood = !state.activeMood || p.mood === state.activeMood;
+            const matchQuery =
+              !q ||
+              p.name.toLowerCase().includes(q) ||
+              p.category.toLowerCase().includes(q) ||
+              p.mood.toLowerCase().includes(q) ||
+              p.shortDesc.toLowerCase().includes(q) ||
+              p.notes.top.toLowerCase().includes(q) ||
+              p.notes.heart.toLowerCase().includes(q) ||
+              p.notes.base.toLowerCase().includes(q);
+            return matchCategory && matchMood && matchQuery;
+          });
+
+          if (state.sortBy === 'rating') {
+            list = [...list].sort((a, b) => b.rating - a.rating || a.price - b.price);
+          } else if (state.sortBy === 'price-asc') {
+            list = [...list].sort((a, b) => a.price - b.price);
+          } else if (state.sortBy === 'price-desc') {
+            list = [...list].sort((a, b) => b.price - a.price);
+          }
+          return list;
+        }
+
+        function renderCatalog() {
+          const filtered = getFilteredProducts();
+
+          // Update mood banner
+          if (state.activeMood) {
+            els.activeMoodBanner.classList.remove('hidden');
+            els.activeMoodName.textContent = state.activeMood;
+            els.activeMoodDesc.textContent = `— ${MOOD_DETAILS[state.activeMood] || ''}`;
+          } else {
+            els.activeMoodBanner.classList.add('hidden');
+          }
+
+          // Update mood card active styling
+          document.querySelectorAll('.mood-card').forEach((card) => {
+            const isSelected = card.getAttribute('data-mood') === state.activeMood;
+            card.classList.toggle('ring-2', isSelected);
+            card.classList.toggle('ring-rose-deep', isSelected);
+          });
+
+          const hasFilters = state.activeCategory !== 'All Blooms' || state.activeMood !== null || state.searchQuery.trim() !== '';
+          els.clearAllFiltersBtn.classList.toggle('hidden', !hasFilters);
+          els.catalogCountLabel.textContent = `Showing ${filtered.length} of ${PRODUCTS.length} fragrances`;
+
+          if (filtered.length === 0) {
+            els.productGrid.innerHTML = '';
+            els.catalogEmptyState.classList.remove('hidden');
+            return;
+          }
+
+          els.catalogEmptyState.classList.add('hidden');
+
+          els.productGrid.innerHTML = filtered
+            .map((product, idx) => {
+              const pal = getPaletteForAccent(product.accent);
+              return `
+                <article
+                  class="product-card product-card-enter bg-white rounded-3xl border border-[#E7DCE6] overflow-hidden flex flex-col justify-between shadow-xs hover:shadow-md transition-shadow"
+                  style="animation-delay: ${Math.min(idx * 45, 360)}ms"
+                >
+                  <div>
+                    <!-- Vanity-lit Studio Stage -->
+                    <div
+                      class="vessel-stage relative h-56 px-6 pt-5 pb-3 flex items-center justify-center border-b border-[#EFE7F0]"
+                      style="background: linear-gradient(145deg, ${pal.stageBg1} 0%, #FCFDFF 52%, ${pal.stageBg2} 100%);"
+                    >
+                      ${createVesselSVG(product, 'card')}
+                    </div>
+
+                    <!-- Card Content -->
+                    <div class="p-5 sm:p-6 space-y-3">
+                      <!-- Quiet Metadata Line (Zero-Pill Discipline) -->
+                      <div class="flex items-center justify-between gap-2 text-xs text-soft-slate">
+                        <span class="truncate">${escapeHTML(product.category)} · ${escapeHTML(product.volume.split('·')[0].trim())}</span>
+                        <span class="tabular-nums inline-flex items-center gap-1 font-semibold text-slate-plum shrink-0">
+                          <i class="ph-fill ph-star text-powder-rose text-xs" aria-hidden="true"></i>
+                          ${product.rating.toFixed(1)}
+                        </span>
+                      </div>
+
+                      <div>
+                        <h3 class="font-display text-2xl font-semibold text-slate-plum leading-snug">
+                          ${escapeHTML(product.name)}
+                        </h3>
+                        <p class="text-xs sm:text-sm text-soft-slate mt-1 leading-relaxed line-clamp-2">
+                          ${escapeHTML(product.shortDesc)}
+                        </p>
+                      </div>
+
+                      <!-- Top / Heart / Base Note Summary -->
+                      <dl class="pt-2 border-t border-[#F3ECF4] space-y-1 text-[11px] leading-relaxed">
+                        <div class="flex gap-1.5">
+                          <dt class="font-semibold text-rose-deep shrink-0">Top:</dt>
+                          <dd class="text-soft-slate truncate">${escapeHTML(product.notes.top)}</dd>
+                        </div>
+                        <div class="flex gap-1.5">
+                          <dt class="font-semibold text-serene-blue shrink-0">Heart:</dt>
+                          <dd class="text-soft-slate truncate">${escapeHTML(product.notes.heart)}</dd>
+                        </div>
+                        <div class="flex gap-1.5">
+                          <dt class="font-semibold text-bluebell-accent shrink-0">Base:</dt>
+                          <dd class="text-soft-slate truncate">${escapeHTML(product.notes.base)}</dd>
+                        </div>
+                      </dl>
+                    </div>
+                  </div>
+
+                  <!-- Aligned Price & Actions Footer -->
+                  <div class="px-5 sm:px-6 pb-5 sm:pb-6 pt-2 flex items-center justify-between gap-2">
+                    <span class="tabular-nums text-lg font-semibold text-slate-plum">
+                      ${formatCurrency(product.price)}
+                    </span>
+
+                    <div class="flex items-center gap-2">
+                      <button
+                        type="button"
+                        data-inspect="${product.id}"
+                        class="inspect-notes-btn min-h-[40px] px-3.5 py-2 rounded-full bg-ice-blue/70 hover:bg-ice-blue border border-[#D4E2EF] text-xs font-semibold text-slate-plum transition-colors whitespace-nowrap"
+                      >
+                        Notes &amp; Story
+                      </button>
+                      <button
+                        type="button"
+                        data-add="${product.id}"
+                        class="add-to-bag-btn btn-silk min-h-[40px] px-4 py-2 rounded-full bg-rose-deep hover:bg-[#B86A84] text-white text-xs font-semibold transition-colors whitespace-nowrap"
+                      >
+                        Add to Bag
+                      </button>
+                    </div>
+                  </div>
+                </article>
+              `;
+            })
+            .join('');
+
+          // Attach handlers
+          els.productGrid.querySelectorAll('.inspect-notes-btn').forEach((btn) => {
+            btn.addEventListener('click', () => openNotesModal(btn.getAttribute('data-inspect')));
+          });
+
+          els.productGrid.querySelectorAll('.add-to-bag-btn').forEach((btn) => {
+            btn.addEventListener('click', () => {
+              const id = btn.getAttribute('data-add');
+              addToBag(id);
+              const originalText = btn.textContent;
+              btn.textContent = 'Added ✓';
+              btn.classList.add('bg-serene-blue');
+              btn.classList.remove('bg-rose-deep');
+              setTimeout(() => {
+                btn.textContent = originalText;
+                btn.classList.remove('bg-serene-blue');
+                btn.classList.add('bg-rose-deep');
+              }, 1100);
+            });
+          });
+        }
+
+        // Mood Card Selection
+        document.querySelectorAll('.mood-card').forEach((card) => {
+          card.addEventListener('click', () => {
+            const mood = card.getAttribute('data-mood');
+            state.activeMood = state.activeMood === mood ? null : mood;
+            renderCatalog();
+            document.getElementById('collections').scrollIntoView({ behavior: 'smooth' });
+          });
+        });
+
+        function resetAllFilters() {
+          state.activeCategory = 'All Blooms';
+          state.activeMood = null;
+          handleSearchChange('');
+          renderCategoryTabs();
+          renderCatalog();
+        }
+
+        els.resetMoodBtn.addEventListener('click', () => {
+          state.activeMood = null;
+          renderCatalog();
+        });
+        els.clearAllFiltersBtn.addEventListener('click', resetAllFilters);
+        els.emptyResetBtn.addEventListener('click', resetAllFilters);
+
+        // ---------------------------------------------------------------------
+        // 8. NOTES & STORY MODAL
+        // ---------------------------------------------------------------------
+        function openNotesModal(productId) {
+          const product = PRODUCTS.find((p) => p.id === productId);
+          if (!product) return;
+          const pal = getPaletteForAccent(product.accent);
+
+          els.notesModalBody.innerHTML = `
+            <div
+              class="md:col-span-5 rounded-2xl p-6 flex items-center justify-center border border-[#EAE2EC]"
+              style="background: linear-gradient(145deg, ${pal.stageBg1} 0%, #FCFDFF 55%, ${pal.stageBg2} 100%);"
+            >
+              <div class="w-full max-w-[230px] animate-petal-float-slow">
+                ${createVesselSVG(product, 'modal')}
+              </div>
+            </div>
+            <div class="md:col-span-7 space-y-4">
+              <div class="flex flex-wrap items-center gap-2 text-xs text-soft-slate">
+                <span class="font-semibold text-rose-deep">${escapeHTML(product.category)}</span>
+                <span>·</span>
+                <span>${escapeHTML(product.volume)}</span>
+                <span>·</span>
+                <span>${escapeHTML(product.mood)}</span>
+                <span>·</span>
+                <span class="tabular-nums font-semibold text-slate-plum inline-flex items-center gap-1">
+                  <i class="ph-fill ph-star text-powder-rose" aria-hidden="true"></i> ${product.rating.toFixed(1)}
+                </span>
+              </div>
+
+              <h2 id="notes-modal-title" class="font-display text-3xl sm:text-4xl font-semibold text-slate-plum leading-tight">
+                ${escapeHTML(product.name)}
+              </h2>
+
+              <p class="text-sm text-soft-slate leading-relaxed">
+                ${escapeHTML(product.story)}
+              </p>
+
+              <div class="p-4 rounded-2xl bg-white border border-[#EAE2EC] space-y-2 text-xs sm:text-sm">
+                <div class="flex gap-2">
+                  <span class="font-semibold text-rose-deep min-w-[52px]">Top</span>
+                  <span class="text-slate-plum">${escapeHTML(product.notes.top)}</span>
+                </div>
+                <div class="flex gap-2">
+                  <span class="font-semibold text-serene-blue min-w-[52px]">Heart</span>
+                  <span class="text-slate-plum">${escapeHTML(product.notes.heart)}</span>
+                </div>
+                <div class="flex gap-2">
+                  <span class="font-semibold text-bluebell-accent min-w-[52px]">Base</span>
+                  <span class="text-slate-plum">${escapeHTML(product.notes.base)}</span>
+                </div>
+              </div>
+
+              <p class="text-xs text-soft-slate leading-relaxed">
+                <strong class="text-slate-plum">Layering Tip:</strong> ${escapeHTML(product.tip)}
+              </p>
+
+              <div class="pt-2 flex flex-wrap items-center justify-between gap-4 border-t border-[#EAE2EC]">
+                <span class="tabular-nums text-2xl font-semibold text-slate-plum">${formatCurrency(product.price)}</span>
+                <button
+                  type="button"
+                  id="modal-add-to-bag-btn"
+                  class="btn-silk min-h-[44px] px-7 py-2.5 rounded-full bg-rose-deep hover:bg-[#B86A84] text-white text-sm font-semibold shadow-sm"
+                >
+                  Add to Bag
+                </button>
+              </div>
+            </div>
+          `;
+
+          document.getElementById('modal-add-to-bag-btn').addEventListener('click', () => {
+            addToBag(product.id);
+            closeNotesModal();
+            openBagDrawer();
+          });
+
+          els.notesModalBackdrop.classList.remove('hidden');
+        }
+
+        function closeNotesModal() {
+          els.notesModalBackdrop.classList.add('hidden');
+        }
+
+        els.closeNotesModal.addEventListener('click', closeNotesModal);
+        els.notesModalBackdrop.addEventListener('click', (e) => {
+          if (e.target === els.notesModalBackdrop) closeNotesModal();
+        });
+
+        // ---------------------------------------------------------------------
+        // 9. INTERACTIVE SCENT PYRAMID EXPLORER
+        // ---------------------------------------------------------------------
+        function selectPyramidLayer(layer) {
+          state.activePyramidLayer = layer;
+          const info = PYRAMID_LAYERS[layer];
+          els.pyramidStageKicker.textContent = info.kicker;
+          els.pyramidStageTitle.textContent = info.title;
+          els.pyramidStageDesc.textContent = info.desc;
+          els.pyramidStageNotes.textContent = info.notes;
+
+          // Update SVG polygons highlight
+          const polys = {
+            top: document.getElementById('pyramid-poly-top'),
+            heart: document.getElementById('pyramid-poly-heart'),
+            base: document.getElementById('pyramid-poly-base'),
+          };
+          Object.entries(polys).forEach(([k, poly]) => {
+            const active = k === layer;
+            poly.setAttribute('stroke-width', active ? '2.5' : '1.2');
+            poly.setAttribute('opacity', active ? '1' : '0.62');
+          });
+
+          // Update tab buttons
+          document.querySelectorAll('.pyramid-tab').forEach((btn) => {
+            const active = btn.getAttribute('data-pyramid') === layer;
+            btn.className = `pyramid-tab min-h-[40px] px-4 py-2 rounded-full text-xs font-semibold border transition-colors whitespace-nowrap ${
+              active
+                ? 'bg-rose-deep text-white border-rose-deep'
+                : 'bg-morning-cloud text-soft-slate border-[#E4DCE6] hover:border-rose-deep hover:text-slate-plum'
+            }`;
+          });
+        }
+
+        document.querySelectorAll('.pyramid-tab').forEach((btn) => {
+          btn.addEventListener('click', () => selectPyramidLayer(btn.getAttribute('data-pyramid')));
+        });
+
+        ['top', 'heart', 'base'].forEach((layer) => {
+          const g = document.getElementById(`pyramid-btn-${layer}`);
+          g.addEventListener('click', () => selectPyramidLayer(layer));
+          g.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              selectPyramidLayer(layer);
+            }
+          });
+        });
+
+        // ---------------------------------------------------------------------
+        // 10. SLIDE-OUT SCENT BAG & LIVE PROGRESS BAR
+        // ---------------------------------------------------------------------
+        const FREE_SHIPPING_THRESHOLD = 65;
+        const SHIPPING_FEE = 6;
+
+        function saveBag() {
+          writeJSON(STORAGE_KEYS.BAG, state.bag);
+          renderBag();
+        }
+
+        function addToBag(productId) {
+          const product = PRODUCTS.find((p) => p.id === productId);
+          if (!product) return;
+          const existing = state.bag.find((item) => item.id === productId);
+          if (existing) {
+            existing.qty += 1;
+          } else {
+            state.bag.push({ id: productId, qty: 1 });
+          }
+          saveBag();
+          showToast(`${product.name} added to your Scent Bag.`);
+        }
+
+        function updateBagQty(productId, delta) {
+          const idx = state.bag.findIndex((item) => item.id === productId);
+          if (idx === -1) return;
+          state.bag[idx].qty += delta;
+          if (state.bag[idx].qty <= 0) {
+            state.bag.splice(idx, 1);
+          }
+          saveBag();
+        }
+
+        function getBagCalculations() {
+          let subtotal = 0;
+          let totalCount = 0;
+          const detailedItems = [];
+
+          state.bag.forEach((entry) => {
+            const p = PRODUCTS.find((prod) => prod.id === entry.id);
+            if (p) {
+              subtotal += p.price * entry.qty;
+              totalCount += entry.qty;
+              detailedItems.push({ product: p, qty: entry.qty });
+            }
+          });
+
+          const unlockedFree = subtotal >= FREE_SHIPPING_THRESHOLD;
+          const shipping = subtotal === 0 ? 0 : unlockedFree ? 0 : SHIPPING_FEE;
+          const total = subtotal + shipping;
+          return { subtotal, totalCount, unlockedFree, shipping, total, detailedItems };
+        }
+
+        function renderBag() {
+          const { subtotal, totalCount, unlockedFree, shipping, total, detailedItems } = getBagCalculations();
+
+          els.headerBagCount.textContent = String(totalCount);
+          els.bagItemCountSub.textContent = `${totalCount} ${totalCount === 1 ? 'item' : 'items'} selected`;
+
+          // Progress bar
+          const pct = Math.min(100, (subtotal / FREE_SHIPPING_THRESHOLD) * 100);
+          els.bagProgressFill.style.width = `${pct}%`;
+
+          if (subtotal === 0) {
+            els.bagProgressText.textContent =
+              'Add $65.00 of sweet florals for complimentary shipping & a Discovery Trio.';
+          } else if (unlockedFree) {
+            els.bagProgressText.textContent =
+              'Complimentary shipping & Sweet-Floral Discovery Trio unlocked!';
+          } else {
+            const remaining = FREE_SHIPPING_THRESHOLD - subtotal;
+            els.bagProgressText.textContent = `Add ${formatCurrency(remaining)} more for complimentary shipping & a Discovery Trio.`;
+          }
+
+          els.bagSubtotal.textContent = formatCurrency(subtotal);
+          els.bagShipping.textContent = subtotal === 0 ? '$0.00' : unlockedFree ? 'Free' : formatCurrency(shipping);
+          els.bagTrioRow.classList.toggle('hidden', !unlockedFree);
+          els.bagTotal.textContent = formatCurrency(total);
+          els.proceedCheckoutBtn.disabled = detailedItems.length === 0;
+
+          if (detailedItems.length === 0) {
+            els.bagItemsContainer.innerHTML = `
+              <div class="text-center py-12 px-4 space-y-3">
+                <span class="w-12 h-12 mx-auto rounded-full bg-blush-mist flex items-center justify-center text-rose-deep">
+                  <i class="ph ph-handbag text-2xl" aria-hidden="true"></i>
+                </span>
+                <p class="font-display text-2xl font-semibold text-slate-plum">Your Scent Bag is airy &amp; empty</p>
+                <p class="text-xs text-soft-slate">Explore our six sweet-floral collections to begin your ritual.</p>
+              </div>
+            `;
+            return;
+          }
+
+          els.bagItemsContainer.innerHTML = detailedItems
+            .map(({ product, qty }) => {
+              const pal = getPaletteForAccent(product.accent);
+              return `
+                <div class="flex items-center gap-3.5 p-3 rounded-2xl bg-white border border-[#EAE2EC]">
+                  <div
+                    class="w-16 h-16 rounded-xl shrink-0 flex items-center justify-center p-1 border border-[#F0E8F2]"
+                    style="background: linear-gradient(145deg, ${pal.stageBg1}, ${pal.stageBg2});"
+                  >
+                    ${createVesselSVG(product, 'bag')}
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <p class="text-[11px] text-soft-slate truncate">${escapeHTML(product.category)} · ${escapeHTML(product.volume.split('·')[0].trim())}</p>
+                    <h4 class="font-display text-lg font-semibold text-slate-plum truncate">${escapeHTML(product.name)}</h4>
+                    <p class="tabular-nums text-xs font-semibold text-rose-deep mt-0.5">${formatCurrency(product.price * qty)}</p>
+                  </div>
+                  <div class="flex items-center gap-1.5 shrink-0">
+                    <button
+                      type="button"
+                      data-bag-dec="${product.id}"
+                      aria-label="Decrease quantity of ${escapeHTML(product.name)}"
+                      class="w-8 h-8 rounded-full border border-[#E4DCE6] hover:bg-blush-mist flex items-center justify-center text-slate-plum text-xs font-bold"
+                    >
+                      −
+                    </button>
+                    <span class="tabular-nums w-6 text-center text-xs font-semibold text-slate-plum">${qty}</span>
+                    <button
+                      type="button"
+                      data-bag-inc="${product.id}"
+                      aria-label="Increase quantity of ${escapeHTML(product.name)}"
+                      class="w-8 h-8 rounded-full border border-[#E4DCE6] hover:bg-ice-blue flex items-center justify-center text-slate-plum text-xs font-bold"
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
+              `;
+            })
+            .join('');
+
+          els.bagItemsContainer.querySelectorAll('[data-bag-dec]').forEach((btn) => {
+            btn.addEventListener('click', () => updateBagQty(btn.getAttribute('data-bag-dec'), -1));
+          });
+          els.bagItemsContainer.querySelectorAll('[data-bag-inc]').forEach((btn) => {
+            btn.addEventListener('click', () => updateBagQty(btn.getAttribute('data-bag-inc'), 1));
+          });
+        }
+
+        function openBagDrawer() {
+          els.bagDrawerBackdrop.classList.remove('hidden');
+        }
+
+        function closeBagDrawer() {
+          els.bagDrawerBackdrop.classList.add('hidden');
+        }
+
+        els.openBagBtn.addEventListener('click', openBagDrawer);
+        els.closeBagBtn.addEventListener('click', closeBagDrawer);
+        els.bagDrawerBackdrop.addEventListener('click', (e) => {
+          if (e.target === els.bagDrawerBackdrop) closeBagDrawer();
+        });
+
+        // ---------------------------------------------------------------------
+        // 11. CHECKOUT & SAVED PROFILE / ORDER HISTORY
+        // ---------------------------------------------------------------------
+        function syncProfileUI() {
+          const p = state.profile;
+          if (p && p.name) {
+            const firstName = p.name.trim().split(/\s+/)[0];
+            els.profileBtnLabel.textContent = firstName;
+            els.profileSavedDot.classList.remove('hidden');
+            els.profileName.value = p.name || '';
+            els.profilePhone.value = p.phone || '';
+            els.profileEmail.value = p.email || '';
+            els.profileCity.value = p.city || '';
+            els.profileAddress.value = p.address || '';
+          } else {
+            els.profileBtnLabel.textContent = 'My Profile';
+            els.profileSavedDot.classList.add('hidden');
+            els.profileName.value = '';
+            els.profilePhone.value = '';
+            els.profileEmail.value = '';
+            els.profileCity.value = '';
+            els.profileAddress.value = '';
+          }
+          renderOrderHistory();
+        }
+
+        function renderOrderHistory() {
+          if (!state.orders || state.orders.length === 0) {
+            els.profileOrdersList.innerHTML = `
+              <div class="p-5 rounded-2xl bg-white border border-[#EAE2EC] text-center">
+                <p class="text-sm font-medium text-slate-plum">No orders placed yet</p>
+                <p class="text-xs text-soft-slate mt-1">Your confirmed FR- order receipts will appear here.</p>
+              </div>
+            `;
+            return;
+          }
+
+          els.profileOrdersList.innerHTML = state.orders
+            .map((order) => `
+              <div class="p-4 rounded-2xl bg-white border border-[#EAE2EC] space-y-2 tabular-nums">
+                <div class="flex items-center justify-between gap-2">
+                  <span class="text-xs font-bold text-rose-deep">${escapeHTML(order.id)}</span>
+                  <span class="text-[11px] text-soft-slate">${escapeHTML(order.date)}</span>
+                </div>
+                <p class="text-xs text-slate-plum font-medium">${escapeHTML(order.itemsSummary)}</p>
+                <div class="flex items-center justify-between text-xs text-soft-slate pt-1 border-t border-[#F4EEF5]">
+                  <span>${escapeHTML(order.paymentMethod)}</span>
+                  <strong class="text-slate-plum">${formatCurrency(order.total)}</strong>
+                </div>
+              </div>
+            `)
+            .join('');
+        }
+
+        function openProfileModal() {
+          syncProfileUI();
+          els.profileModalBackdrop.classList.remove('hidden');
+        }
+
+        function closeProfileModal() {
+          els.profileModalBackdrop.classList.add('hidden');
+        }
+
+        els.openProfileBtn.addEventListener('click', openProfileModal);
+        els.closeProfileModal.addEventListener('click', closeProfileModal);
+        els.profileModalBackdrop.addEventListener('click', (e) => {
+          if (e.target === els.profileModalBackdrop) closeProfileModal();
+        });
+
+        els.profileForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          state.profile = {
+            name: els.profileName.value.trim(),
+            phone: els.profilePhone.value.trim(),
+            email: els.profileEmail.value.trim(),
+            city: els.profileCity.value.trim(),
+            address: els.profileAddress.value.trim(),
+          };
+          writeJSON(STORAGE_KEYS.PROFILE, state.profile);
+          syncProfileUI();
+          showToast('Customer profile saved for faster checkouts.', 'blue');
+        });
+
+        els.clearProfileBtn.addEventListener('click', () => {
+          state.profile = null;
+          localStorage.removeItem(STORAGE_KEYS.PROFILE);
+          syncProfileUI();
+          showToast('Saved profile details cleared.', 'blue');
+        });
+
+        // Checkout Modal Flow
+        function fillCheckoutFromProfile() {
+          if (!state.profile) return;
+          els.checkoutName.value = state.profile.name || '';
+          els.checkoutPhone.value = state.profile.phone || '';
+          els.checkoutEmail.value = state.profile.email || '';
+          els.checkoutCity.value = state.profile.city || '';
+          els.checkoutAddress.value = state.profile.address || '';
+        }
+
+        function openCheckoutModal() {
+          closeBagDrawer();
+          const { totalCount, total } = getBagCalculations();
+          els.checkoutSummaryItems.textContent = `${totalCount} ${totalCount === 1 ? 'item' : 'items'} in parcel`;
+          els.checkoutSummaryTotal.textContent = formatCurrency(total);
+
+          els.checkoutFormView.classList.remove('hidden');
+          els.checkoutReceiptView.classList.add('hidden');
+
+          if (state.profile && state.profile.name) {
+            els.checkoutAutofillBar.classList.remove('hidden');
+            els.checkoutSavedName.textContent = state.profile.name;
+            fillCheckoutFromProfile();
+          } else {
+            els.checkoutAutofillBar.classList.add('hidden');
+          }
+
+          els.checkoutModalBackdrop.classList.remove('hidden');
+        }
+
+        function closeCheckoutModal() {
+          els.checkoutModalBackdrop.classList.add('hidden');
+        }
+
+        els.proceedCheckoutBtn.addEventListener('click', openCheckoutModal);
+        els.closeCheckoutModal.addEventListener('click', closeCheckoutModal);
+        els.checkoutModalBackdrop.addEventListener('click', (e) => {
+          if (e.target === els.checkoutModalBackdrop) closeCheckoutModal();
+        });
+        els.checkoutAutofillBtn.addEventListener('click', () => {
+          fillCheckoutFromProfile();
+          showToast('Profile details auto-filled.', 'blue');
+        });
+
+        document.querySelectorAll('input[name="paymentMethod"]').forEach((radio) => {
+          radio.addEventListener('change', (e) => {
+            const isCard = e.target.value === 'Card / Online Transfer';
+            els.cardReferenceWrap.classList.toggle('hidden', !isCard);
+          });
+        });
+
+        els.checkoutForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const { total, unlockedFree, detailedItems } = getBagCalculations();
+          if (detailedItems.length === 0) return;
+
+          const customer = {
+            name: els.checkoutName.value.trim(),
+            phone: els.checkoutPhone.value.trim(),
+            email: els.checkoutEmail.value.trim(),
+            city: els.checkoutCity.value.trim(),
+            address: els.checkoutAddress.value.trim(),
+          };
+
+          if (els.checkoutSaveProfile.checked) {
+            state.profile = customer;
+            writeJSON(STORAGE_KEYS.PROFILE, state.profile);
+          }
+
+          const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
+          const orderId = 'FR-' + Math.floor(100000 + Math.random() * 900000);
+          const dateStr = new Date().toLocaleDateString('en-US', {
+            month: 'short',
+            day: 'numeric',
+            year: 'numeric',
+          });
+          const itemsSummary = detailedItems
+            .map(({ product, qty }) => `${qty}× ${product.name}`)
+            .join(', ') + (unlockedFree ? ' + Complimentary Discovery Trio' : '');
+
+          const newOrder = {
+            id: orderId,
+            date: dateStr,
+            customerName: customer.name,
+            city: customer.city,
+            paymentMethod,
+            itemsSummary,
+            total,
+          };
+
+          state.orders.unshift(newOrder);
+          writeJSON(STORAGE_KEYS.ORDERS, state.orders);
+
+          // Clear bag
+          state.bag = [];
+          saveBag();
+          syncProfileUI();
+
+          // Render Receipt
+          els.receiptOrderId.textContent = `Order #${orderId}`;
+          els.receiptDetailsBox.innerHTML = `
+            <div class="flex justify-between gap-2"><span class="text-soft-slate">Recipient</span><strong class="text-slate-plum">${escapeHTML(customer.name)}</strong></div>
+            <div class="flex justify-between gap-2"><span class="text-soft-slate">Destination</span><span class="text-slate-plum text-right">${escapeHTML(customer.address)}, ${escapeHTML(customer.city)}</span></div>
+            <div class="flex justify-between gap-2"><span class="text-soft-slate">Payment</span><span class="text-slate-plum">${escapeHTML(paymentMethod)}</span></div>
+            <div class="flex justify-between gap-2 pt-2 border-t border-[#F0E9F2]"><span class="text-soft-slate">Parcel Contents</span><span class="text-slate-plum text-right max-w-[65%]">${escapeHTML(itemsSummary)}</span></div>
+            <div class="flex justify-between gap-2 pt-2 border-t border-[#F0E9F2] text-base"><span class="font-semibold text-slate-plum">Total Paid / Due</span><strong class="text-rose-deep">${formatCurrency(total)}</strong></div>
+          `;
+
+          els.checkoutFormView.classList.add('hidden');
+          els.checkoutReceiptView.classList.remove('hidden');
+          showToast(`Order #${orderId} confirmed!`, 'rose');
+        });
+
+        els.receiptContinueBtn.addEventListener('click', closeCheckoutModal);
+        els.receiptViewProfileBtn.addEventListener('click', () => {
+          closeCheckoutModal();
+          openProfileModal();
+        });
+
+        // ---------------------------------------------------------------------
+        // 12. CUSTOMER REVIEWS & STAR PICKER
+        // ---------------------------------------------------------------------
+        function populateReviewProductSelect() {
+          els.reviewProduct.innerHTML = PRODUCTS.map(
+            (p) => `<option value="${p.id}">${escapeHTML(p.name)} (${escapeHTML(p.category)})</option>`
+          ).join('');
+        }
+
+        function renderStarPicker(selected) {
+          els.reviewRatingValue.value = String(selected);
+          els.reviewStarPicker.innerHTML = [1, 2, 3, 4, 5]
+            .map((star) => {
+              const filled = star <= selected;
+              return `
+                <button
+                  type="button"
+                  data-star="${star}"
+                  aria-label="Rate ${star} out of 5 stars"
+                  class="w-9 h-9 rounded-full border border-[#EAE2EC] bg-white hover:border-rose-deep flex items-center justify-center transition-colors"
+                >
+                  <i class="${filled ? 'ph-fill text-rose-deep' : 'ph text-soft-slate/50'} ph-star text-base" aria-hidden="true"></i>
+                </button>
+              `;
+            })
+            .join('');
+
+          els.reviewStarPicker.querySelectorAll('[data-star]').forEach((btn) => {
+            btn.addEventListener('click', () => {
+              renderStarPicker(Number(btn.getAttribute('data-star')));
+            });
+          });
+        }
+
+        function renderReviews() {
+          const total = state.reviews.length;
+          const avg = total > 0 ? state.reviews.reduce((sum, r) => sum + r.rating, 0) / total : 5.0;
+          els.reviewsAvgDisplay.textContent = `${avg.toFixed(1)} / 5.0`;
+          els.reviewsCountDisplay.textContent = `Based on ${total} verified scent ${total === 1 ? 'story' : 'stories'}`;
+
+          els.reviewsList.innerHTML = state.reviews
+            .map((rev) => {
+              const stars = Array.from({ length: 5 }, (_, i) =>
+                `<i class="${i < rev.rating ? 'ph-fill text-rose-deep' : 'ph text-soft-slate/35'} ph-star text-xs" aria-hidden="true"></i>`
+              ).join('');
+              return `
+                <article class="p-5 sm:p-6 rounded-2xl bg-white border border-[#E7DCE6] space-y-2.5 shadow-xs">
+                  <div class="flex flex-wrap items-center justify-between gap-2">
+                    <div class="flex items-center gap-1">${stars}</div>
+                    <span class="text-xs text-soft-slate">${escapeHTML(rev.productName)} · ${escapeHTML(rev.date)}</span>
+                  </div>
+                  <h3 class="font-display text-xl sm:text-2xl font-semibold text-slate-plum">${escapeHTML(rev.headline)}</h3>
+                  <p class="text-sm text-soft-slate leading-relaxed">${escapeHTML(rev.text)}</p>
+                  <p class="text-xs font-semibold text-slate-plum pt-1">
+                    ${escapeHTML(rev.name)}${rev.city ? ` <span class="font-normal text-soft-slate">· ${escapeHTML(rev.city)}</span>` : ''}
+                  </p>
+                </article>
+              `;
+            })
+            .join('');
+        }
+
+        els.reviewForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const prodId = els.reviewProduct.value;
+          const prod = PRODUCTS.find((p) => p.id === prodId);
+          const rating = Number(els.reviewRatingValue.value) || 5;
+
+          const newReview = {
+            id: 'rev-' + Date.now(),
+            productId: prodId,
+            productName: prod ? prod.name : 'Freshrances',
+            rating,
+            name: els.reviewName.value.trim(),
+            city: els.reviewCity.value.trim(),
+            headline: els.reviewHeadline.value.trim(),
+            text: els.reviewText.value.trim(),
+            date: new Date().toLocaleDateString('en-US', {
+              month: 'short',
+              day: 'numeric',
+              year: 'numeric',
+            }),
+          };
+
+          state.reviews.unshift(newReview);
+          writeJSON(STORAGE_KEYS.REVIEWS, state.reviews);
+          renderReviews();
+          els.reviewForm.reset();
+          renderStarPicker(5);
+          showToast('Thank you! Your scent story is now live.', 'rose');
+        });
+
+        // ---------------------------------------------------------------------
+        // 13. OFFICIAL BRAND EMAIL & CONTACT DESK
+        // ---------------------------------------------------------------------
+        els.copyConciergeEmail.addEventListener('click', async () => {
+          const email = 'concierge@freshrances.com';
+          try {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+              await navigator.clipboard.writeText(email);
+            } else {
+              const temp = document.createElement('input');
+              temp.value = email;
+              document.body.appendChild(temp);
+              temp.select();
+              document.execCommand('copy');
+              temp.remove();
+            }
+            els.copyEmailLabel.textContent = 'Copied ✓';
+            showToast('concierge@freshrances.com copied to clipboard.', 'blue');
+            setTimeout(() => {
+              els.copyEmailLabel.textContent = 'Copy Email';
+            }, 2000);
+          } catch (err) {
+            showToast('Email: concierge@freshrances.com', 'blue');
+          }
+        });
+
+        els.contactForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          els.contactConfirmation.classList.remove('hidden');
+          els.contactForm.reset();
+          showToast('Inquiry sent to concierge@freshrances.com.', 'blue');
+          setTimeout(() => {
+            els.contactConfirmation.classList.add('hidden');
+          }, 6000);
+        });
+
+        // ---------------------------------------------------------------------
+        // 14. FRESHRANCES SCENT GUIDE CHATBOT + LIVE AI HOOK
+        // ---------------------------------------------------------------------
+        /**
+         * Clean async integration hook for connecting an OpenAI or Gemini API key.
+         * Replace `LIVE_AI_CONFIG.endpoint` and `LIVE_AI_CONFIG.apiKey` (or proxy via your backend `/api/chat`)
+         * to route Scent Guide replies through a live LLM while falling back smoothly to curated rules.
+         */
+        const LIVE_AI_CONFIG = {
+          enabled: false,
+          provider: 'gemini', // 'gemini' | 'openai'
+          endpoint: '',
+          apiKey: '',
+        };
+
+        async function fetchLiveAIResponse(userMessage, catalogContext) {
+          if (!LIVE_AI_CONFIG.enabled || !LIVE_AI_CONFIG.endpoint) {
+            return null; // Gracefully use curated Scent Guide rules when no live key is configured
+          }
+
+          const response = await fetch(LIVE_AI_CONFIG.endpoint, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              ...(LIVE_AI_CONFIG.apiKey ? { Authorization: `Bearer ${LIVE_AI_CONFIG.apiKey}` } : {}),
+            },
+            body: JSON.stringify({
+              message: userMessage,
+              catalog: catalogContext,
+            }),
+          });
+
+          if (!response.ok) return null;
+          const data = await response.json();
+          return data.reply || null;
+        }
+
+        function generateRuleBasedReply(input) {
+          const text = input.toLowerCase();
+
+          if (text.includes('sweet floral') || text.includes('pick') || text.includes('recommend') || text.includes('peony') || text.includes('pear')) {
+            return 'For an airy sweet-floral signature, try **Peony Morning Cloud** ($58, white peony & candied pear) or **Rosewater & Lychee Mist** ($28) for hair and body. Prefer softer blue blooms? **Bluebell Silk Veil** ($62) blends morning bluebell with soft iris.';
+          }
+
+          if (text.includes('layer') || text.includes('longevity') || text.includes('last') || text.includes('ritual')) {
+            return 'For 8+ hours of gentle sweetness, follow our 3-step ritual: (1) Refresh with **Candied Pear Petal Splash** & **Cotton Peony Deodorant**, (2) Anchor pulse points with **Pink Lychee Nectar Roll-On** + Perfume, and (3) Mist **Rosewater & Lychee Mist** over hair or scarves.';
+          }
+
+          if (text.includes('order') || text.includes('ship') || text.includes('delivery') || text.includes('free') || text.includes('cod')) {
+            return 'Orders above **$65** receive **complimentary shipping** plus a free **Sweet-Floral Discovery Trio** (standard shipping is $6 below $65). Both Cash on Delivery and Card / Online Transfer are available at checkout!';
+          }
+
+          if (text.includes('email') || text.includes('contact') || text.includes('desk') || text.includes('support')) {
+            return 'You can reach our official brand concierge anytime at **concierge@freshrances.com** (or **orders@freshrances.com** for parcel updates). We reply within 4 business hours, Monday–Saturday.';
+          }
+
+          if (text.includes('deodorant') || text.includes('roll-on') || text.includes('splash') || text.includes('mist') || text.includes('spray')) {
+            return 'We craft six calming formats: Perfumes (6–8h), concentrated Roll-Ons (7–9h), Body Sprays (3–5h), Hair & Body Mists (2–4h), Botanical Splash (1.5–3h), and Silk Balm Deodorants (12–24h freshness). Tap any category tab in Collections to inspect every bottle!';
+          }
+
+          return 'I would love to help you find a calm, sweet-floral match! Ask me about **Sweet Floral Picks** (peony, pear, lychee, bluebell), **Layering & Longevity**, **Order & Shipping**, or our **Official Email**.';
+        }
+
+        function appendChatMessage(sender, text) {
+          const isUser = sender === 'user';
+          const wrapper = document.createElement('div');
+          wrapper.className = `flex ${isUser ? 'justify-end' : 'justify-start'}`;
+          const formatted = escapeHTML(text).replace(
+            /\*\*(.+?)\*\*/g,
+            `<strong class="font-semibold ${isUser ? 'text-white' : 'text-slate-plum'}">$1</strong>`
+          );
+          wrapper.innerHTML = `
+            <div class="max-w-[85%] px-3.5 py-2.5 rounded-2xl leading-relaxed ${
+              isUser
+                ? 'bg-rose-deep text-white rounded-br-sm'
+                : 'bg-white border border-[#E8DCE8] text-soft-slate rounded-bl-sm shadow-2xs'
+            }">
+              ${formatted}
+            </div>
+          `;
+          els.chatbotMessages.appendChild(wrapper);
+          els.chatbotMessages.scrollTop = els.chatbotMessages.scrollHeight;
+        }
+
+        function showTypingIndicator() {
+          const el = document.createElement('div');
+          el.id = 'chatbot-typing';
+          el.className = 'flex justify-start';
+          el.innerHTML = `
+            <div class="px-4 py-3 rounded-2xl rounded-bl-sm bg-white border border-[#E8DCE8] flex items-center gap-1.5">
+              <span class="typing-dot w-1.5 h-1.5 rounded-full bg-rose-deep"></span>
+              <span class="typing-dot w-1.5 h-1.5 rounded-full bg-serene-blue"></span>
+              <span class="typing-dot w-1.5 h-1.5 rounded-full bg-powder-rose"></span>
+            </div>
+          `;
+          els.chatbotMessages.appendChild(el);
+          els.chatbotMessages.scrollTop = els.chatbotMessages.scrollHeight;
+        }
+
+        async function sendChatMessage(messageText) {
+          const trimmed = messageText.trim();
+          if (!trimmed) return;
+          appendChatMessage('user', trimmed);
+          showTypingIndicator();
+
+          const catalogContext = PRODUCTS.map((p) => ({
+            name: p.name,
+            category: p.category,
+            mood: p.mood,
+            price: p.price,
+            notes: p.notes,
+          }));
+
+          let reply = null;
+          try {
+            reply = await fetchLiveAIResponse(trimmed, catalogContext);
+          } catch (e) {
+            reply = null;
+          }
+
+          setTimeout(() => {
+            const typing = document.getElementById('chatbot-typing');
+            if (typing) typing.remove();
+            appendChatMessage('bot', reply || generateRuleBasedReply(trimmed));
+          }, 420);
+        }
+
+        function openChatbot() {
+          els.chatbotPanel.classList.remove('hidden');
+          if (!state.chatOpenedOnce) {
+            state.chatOpenedOnce = true;
+            appendChatMessage(
+              'bot',
+              'Welcome to **Freshrances**! I am your Scent Guide. Looking for calm white peony, candied pear, or layering advice today?'
+            );
+          }
+          els.chatbotInput.focus();
+        }
+
+        function closeChatbot() {
+          els.chatbotPanel.classList.add('hidden');
+        }
+
+        els.openChatbotBtn.addEventListener('click', () => {
+          if (els.chatbotPanel.classList.contains('hidden')) openChatbot();
+          else closeChatbot();
+        });
+        els.heroAskGuideBtn.addEventListener('click', openChatbot);
+        els.closeChatbotBtn.addEventListener('click', closeChatbot);
+
+        els.chatbotForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const val = els.chatbotInput.value;
+          els.chatbotInput.value = '';
+          sendChatMessage(val);
+        });
+
+        document.querySelectorAll('.chat-chip').forEach((chip) => {
+          chip.addEventListener('click', () => {
+            sendChatMessage(chip.getAttribute('data-chip'));
+          });
+        });
+
+        // ---------------------------------------------------------------------
+        // 15. GLOBAL ESCAPE KEY HANDLER & INITIALIZATION
+        // ---------------------------------------------------------------------
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape') {
+            closeNotesModal();
+            closeBagDrawer();
+            closeCheckoutModal();
+            closeProfileModal();
+            closeChatbot();
+          }
+        });
+
+        // Initialize all sections
+        els.footerYear.textContent = String(new Date().getFullYear());
+        renderCategoryTabs();
+        renderCatalog();
+        selectPyramidLayer('top');
+        renderBag();
+        syncProfileUI();
+        populateReviewProductSelect();
+        renderStarPicker(5);
+        renderReviews();
+      })();
+    </script>
+  </body>
+</html>

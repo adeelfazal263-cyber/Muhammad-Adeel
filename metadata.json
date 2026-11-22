@@ -1,0 +1,6 @@
+{
+  "name": "Freshrances",
+  "description": "Sweet floral, calm, and refreshing fragrances — perfumes, mists, splash, deodorants, roll-ons, and body sprays.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
